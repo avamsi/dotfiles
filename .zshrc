@@ -31,14 +31,13 @@ up-line-or-local-history() {
     zle set-local-history 0
 }
 
-zle -N up-line-or-local-history
-
 down-line-or-local-history() {
     zle set-local-history 1
     zle down-line-or-history
     zle set-local-history 0
 }
 
+zle -N up-line-or-local-history
 zle -N down-line-or-local-history
 
 bindkey '^[[A' up-line-or-local-history  # up
