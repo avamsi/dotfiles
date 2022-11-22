@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+
+tmux source ~/.tmux/reset_keys.conf
+micro $*
+tmux source ~/.tmux/keys.conf
