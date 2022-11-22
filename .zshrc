@@ -2,7 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 export DISPLAY=':0'
@@ -26,15 +26,15 @@ zle -N edit-command-line
 bindkey '^X^E' edit-command-line  # ctrl-x, ctrl-e
 
 up-line-or-local-history() {
-    zle set-local-history 1
-    zle up-line-or-history
-    zle set-local-history 0
+	zle set-local-history 1
+	zle up-line-or-history
+	zle set-local-history 0
 }
 
 down-line-or-local-history() {
-    zle set-local-history 1
-    zle down-line-or-history
-    zle set-local-history 0
+	zle set-local-history 1
+	zle down-line-or-history
+	zle set-local-history 0
 }
 
 zle -N up-line-or-local-history
