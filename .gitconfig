@@ -2,7 +2,7 @@
 	name = Vamsi Avula
 	email = avamsi07@gmail.com
 [credential "https://github.com"]
-	helper = !/usr/local/bin/gh auth git-credential
+	helper = !gh auth git-credential
 
 [alias]
 	ca = !git add -A && git commit --amend
