@@ -27,7 +27,7 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # github.com/avamsi/heimdall
-source <(heimdall sh)
+# source <(heimdall sh)
 
 source ~/dotfiles/zsh/aliases.zsh
 source ~/dotfiles/zsh/keys.zsh
