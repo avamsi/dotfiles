@@ -1,11 +1,13 @@
 alias ...='cd ../..'
 alias ..='cd ..'
-alias files='nautilus'
+# https://github.com/wincent/clipper
+alias clip='tee >(nc -N localhost 8377)'
 alias grep='grep --color'
 alias ll='ls -al'
 alias ls='ls --classify --color'
 alias re='grep -inrI'
 
+# Like cd, but for tmux sessions, creates a session if needed.
 td() {
 	local session
 	session=$1
@@ -16,10 +18,4 @@ td() {
 		fi
 	}
 	tmux attach-session -t $session 2> /dev/null || tmux switch-client -t $session
-}
-
-tmicro() {
-	tmux source ~/.tmux/reset_keys.conf
-	~/bin/micro $@
-	tmux source ~/.tmux/keys.conf
 }
