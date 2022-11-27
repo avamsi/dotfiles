@@ -12,35 +12,6 @@ export TERM='xterm-256color'
 export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
-autoload -Uz select-word-style
-select-word-style bash
-
-bindkey '^[[1;5D' backward-word  # ctrl-left
-bindkey '^[[1;5C' forward-word  # ctrl-right
-
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^X^E' edit-command-line  # ctrl-x, ctrl-e
-
-up-line-or-local-history() {
-	zle set-local-history 1
-	zle up-line-or-history
-	zle set-local-history 0
-}
-
-zle -N up-line-or-local-history
-
-down-line-or-local-history() {
-	zle set-local-history 1
-	zle down-line-or-history
-	zle set-local-history 0
-}
-
-zle -N down-line-or-local-history
-
-bindkey '^[[A' up-line-or-local-history  # up
-bindkey '^[[B' down-line-or-local-history  # down
-
 HISTSIZE=1000000
 SAVEHIST=1000000
 HISTFILE=~/.zsh/history.zsh
@@ -53,22 +24,15 @@ promptinit
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/zsh_cache
+zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # github.com/avamsi/heimdall
 source <(heimdall sh)
 
 source ~/dotfiles/zsh/aliases.zsh
+source ~/dotfiles/zsh/keys.zsh
 source ~/dotfiles/zsh/options.zsh
-
-source ~/.zsh/almostontop/almostontop.plugin.zsh
-source /usr/local/share/antigen/antigen.zsh
-antigen theme romkatv/powerlevel10k
-antigen bundle Aloxaf/fzf-tab
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-antigen bundle zdharma-continuum/fast-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen apply
+source ~/dotfiles/zsh/plugins.zsh
 
 [[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
 
