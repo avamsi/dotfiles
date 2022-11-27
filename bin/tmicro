@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
 
-tmux source ~/.tmux/reset_keys.conf
+tmux source ~/dotfiles/tmux/reset_keys.conf
 micro $*
-tmux source ~/.tmux/keys.conf
+tmux source ~/dotfiles/tmux/keys.conf
