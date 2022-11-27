@@ -1,4 +1,4 @@
-source /usr/local/share/antigen/antigen.zsh
+source "$HOMEBREW_PREFIX/share/antigen/antigen.zsh"
 
 antigen theme romkatv/powerlevel10k
 
