@@ -4,7 +4,7 @@ alias ..='cd ..'
 alias clip='tee >(nc -N localhost 8377)'
 alias grep='grep --color'
 alias ll='ls -al'
-alias ls='ls --classify --color'
+# alias ls='ls --classify --color'
 alias re='grep -inrI'
 
 jjwatch() {
