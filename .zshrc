@@ -58,8 +58,8 @@ zstyle ':completion:*' cache-path ~/.zsh/zsh_cache
 # github.com/avamsi/heimdall
 source <(heimdall sh)
 
-source ~/.zsh/aliases.zsh
-source ~/.zsh/options.zsh
+source ~/dotfiles/zsh/aliases.zsh
+source ~/dotfiles/zsh/options.zsh
 
 source ~/.zsh/almostontop/almostontop.plugin.zsh
 source /usr/local/share/antigen/antigen.zsh
