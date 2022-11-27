@@ -3,8 +3,7 @@
 cmd="$*"
 (
 	IFS=$'\n'
-	for line in $(script -efq /dev/null -c $cmd)
-		do
-			print "\t$line"
-		done
+	for line in $(script -efq /dev/null -c $cmd); do
+		print "\t$line"
+	done
 )
