@@ -7,6 +7,15 @@ alias ll='ls -al'
 alias ls='ls --classify --color'
 alias re='grep -inrI'
 
+jjwatch() {
+	tput civis
+	local header
+	while sleep 1; do
+		header="$(clear)Every 1.0s: jj log && jj st %-$(($(tput cols) - 57))s $(date)"
+		printf "$header\n\n$(jj --color=always log --reversed && printf '\n' && jj --color=always st)"
+	done
+}
+
 # Like cd, but for tmux sessions, creates a session if needed.
 td() {
 	local session
