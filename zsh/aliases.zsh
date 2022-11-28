@@ -5,6 +5,7 @@ alias clip='tee >(nc -N localhost 8377)'
 alias grep='grep --color'
 alias ll='ls -al'
 # alias ls='ls --classify --color'
+alias micro='tmicro'
 alias re='grep -inrI'
 
 jjwatch() {
@@ -22,7 +23,7 @@ td() {
 	session=$1
 	shift
 	tmux new-session -s $session -d 2> /dev/null && {
-		if [[ "$#" -ne 0 ]]; then
+		if [[ $# -ne 0 ]]; then
 			tmux send-keys -t $session $@ C-m
 		fi
 	}
