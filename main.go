@@ -28,10 +28,19 @@ func (Dotfiles) Link() error {
 			return err
 		}
 		if d.IsDir() {
-			if !strings.HasPrefix(rel, ".") || strings.HasPrefix(rel, ".git") || strings.HasPrefix(rel, ".jj") {
+			// We only want to symlink "dotfiles".
+			if !strings.HasPrefix(rel, ".") {
 				return filepath.SkipDir
 			}
+			if d.Name() == ".git" || d.Name() == ".jj" {
+				return filepath.SkipDir
+			}
+			// We only want to symlink "dotfiles".
 		} else if strings.HasPrefix(rel, ".") {
+			// Manually skip .gitignore and its contents.
+			if d.Name() == ".gitignore" || strings.HasSuffix(d.Name(), ".zsh.zwc") {
+				return nil
+			}
 			symlink := filepath.Join(home, rel)
 			if err := os.MkdirAll(filepath.Dir(symlink), 0755); err != nil {
 				return err
