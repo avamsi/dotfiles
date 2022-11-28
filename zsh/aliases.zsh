@@ -12,12 +12,13 @@ jjwatch() {
 	tput civis
 	local header
 	while sleep 1; do
-		header="$(clear)Every 1.0s: jj log && jj st %-$(($(tput cols) - 57))s $(date)"
+		# TODO: tmux clear-history as well?
+		header="$(clear)Every 1.0s: jj log && summary %-$(($(tput cols) - 59))s $(date)"
 		log=$(jj --color=always log --reversed)
-		pst=$(jj --color=always show --summary @- | tail +8 | while read line; do; print "\t$line"; done)
-		st=$(jj --color=always show --summary @ | tail +8 | while read line; do; print "\t$line"; done)
 		reset='\e[0m'
-		printf "$header\n\n$log\n\n| Parent commit changes:\n$pst$reset\n\n| Working copy changes:\n$st$reset"
+		pcc="| Parent commit changes:\n$(jj --color=always show --summary @- | tail +8 | indent)$reset"
+		wcc="@ Working copy changes:\n$(jj --color=always show --summary @ | tail +8 | indent)$reset"
+		printf "$header\n\n$log\n\n$pcc\n\n$wcc"
 	done
 }
 
