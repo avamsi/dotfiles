@@ -1,3 +1,7 @@
 [user]
 	name = "Vamsi Avula"
 	email = "avamsi07@gmail.com"
+
+[ui]
+	# Show all the changes that are not part of remote branches.
+	default-revset = "all(): ~ (:remote_branches() ~ remote_branches())"
