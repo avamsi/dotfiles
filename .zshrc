@@ -14,22 +14,13 @@ export PATH="$HOME/go/bin:$PATH"
 
 HISTSIZE=1000000
 SAVEHIST=1000000
-HISTFILE=~/.zsh/history.zsh
-
-autoload -Uz compinit
-compinit
-
-autoload -Uz promptinit
-promptinit
-
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+HISTFILE=~/.zsh/history
 
 # github.com/avamsi/heimdall
 # source <(heimdall sh)
 
 source ~/dotfiles/zsh/aliases.zsh
+source ~/dotfiles/zsh/completions.zsh
 source ~/dotfiles/zsh/keys.zsh
 source ~/dotfiles/zsh/options.zsh
 source ~/dotfiles/zsh/plugins.zsh
