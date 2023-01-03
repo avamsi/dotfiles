@@ -16,8 +16,8 @@ jjwatch() {
 		header="$(clear)Every 1.0s: jj log && summary %-$(($(tput cols) - 59))s $(date)"
 		log=$(jj --color=always log --reversed)
 		reset='\e[0m'
-		pcc="| Parent commit changes:\n$(jj --color=always show --summary @- | tail +8 | indent)$reset"
-		wcc="@ Working copy changes:\n$(jj --color=always show --summary @ | tail +8 | indent)$reset"
+		pcc="| Parent commit changes:\n$(jj --color=always show --summary @- | tail +7 | indent)$reset"
+		wcc="@ Working copy changes:\n$(jj --color=always show --summary @ | tail +7 | indent)$reset"
 		printf "$header\n\n$log\n\n$pcc\n\n$wcc"
 	done
 }
