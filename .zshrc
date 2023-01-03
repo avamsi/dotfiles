@@ -12,18 +12,28 @@ export TERM='xterm-256color'
 export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
-HISTSIZE=1000000
-SAVEHIST=1000000
 HISTFILE=~/.zsh/history
+HISTSIZE=1000000
+SAVEHIST=$HISTSIZE
 
-# github.com/avamsi/heimdall
-# source <(heimdall sh)
+autoload -Uz compinit
+compinit
+
+# Also see fzf-tab in plugins.zsh.
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/completions-cache/
+
+source <(jj debug completion --zsh | sed '$d')
+compdef _jj jj
 
 source ~/dotfiles/zsh/aliases.zsh
-source ~/dotfiles/zsh/completions.zsh
 source ~/dotfiles/zsh/keys.zsh
 source ~/dotfiles/zsh/options.zsh
 source ~/dotfiles/zsh/plugins.zsh
+
+# github.com/avamsi/heimdall
+# source <(heimdall sh)
 
 [[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
 
