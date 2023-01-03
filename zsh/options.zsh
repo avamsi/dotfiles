@@ -14,4 +14,3 @@ setopt SHARE_HISTORY
 
 # Input/Output
 setopt CORRECT
-setopt CORRECT_ALL
