@@ -12,6 +12,7 @@
 	reword = ['describe']
 	rollback = ['backout']
 	torebase = ['ids', '--revisions=torebase']
+	up = ['checkout']
 	whatsout = ['diff', '--summary']
 
 [colors]
@@ -25,12 +26,13 @@
 	diff-editor = 'vscode'
 	merge-editor = 'vscode'
 	graph.style = 'curved'
+	# log-author-format = 'username'
 	log-id-preferred-length = 1
 	relative-timestamps = true
 
 [merge-tools]
 	vscode.program = 'code'
-	vscode.edit-args = ['--new-window', '--wait']
+	vscode.edit-args = ['--new-window', '--wait', '$left', '$right']
 	vscode.merge-args = ['--new-window', '--wait', '--merge', '$left', '$right', '$base', '$output']
 
 [revset-aliases]

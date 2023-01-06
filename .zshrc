@@ -1,8 +1,10 @@
+export CACHE="${XDG_CACHE_HOME:-$HOME/.cache}"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "$CACHE/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+	source "$CACHE/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 export DISPLAY=':0'
@@ -13,7 +15,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
-HISTFILE=~/.zsh/history
+HISTFILE="$HOME/.zsh/history"
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
 
@@ -23,7 +25,7 @@ compinit
 # Also see fzf-tab in plugins.zsh.
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/completions-cache/
+zstyle ':completion:*' cache-path "$CACHE/zsh-completions"
 
 source <(jj debug completion --zsh | sed '$d')
 compdef _jj jj
