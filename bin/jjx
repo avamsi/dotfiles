@@ -7,7 +7,8 @@ print "@ Working copy changes:"
 # We intentionally don't use bg(c) here to let jj automatically commit
 # changes to the working copy (so it's not stale on output).
 jj --color=always whatsout --revision=@ | indent
+# TODO: jj hideempty 1>/dev/null 2>/dev/null?
 print "\n| Parent commit changes:"
-jj bgc whatsout --revision=@- | indent
+jj bgc whatsout --revision='parents(@)' | indent
 print
 jj bgc log --revisions=interesting
