@@ -52,7 +52,7 @@ func (Dotfiles) Link() error {
 				}
 				return err
 			}
-			fmt.Printf("Symlinked %s to %s", path, symlink)
+			fmt.Printf("Symlinked %s to %s\n", path, symlink)
 		}
 		return nil
 	})
