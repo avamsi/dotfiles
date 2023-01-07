@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/avamsi/eclipse"
+	"github.com/avamsi/clifr"
 )
 
 type Dotfiles struct{}
@@ -59,5 +59,5 @@ func (Dotfiles) Link() error {
 }
 
 func main() {
-	eclipse.Execute(Dotfiles{})
+	clifr.Execute(Dotfiles{})
 }
