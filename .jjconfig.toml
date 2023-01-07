@@ -3,5 +3,5 @@
 	email = "avamsi07@gmail.com"
 
 [ui]
-	# Show all the changes that are not part of remote branches.
-	default-revset = "all(): ~ (:remote_branches() ~ remote_branches())"
+	# Changes not part of any remote branches and their parents.
+	default-revset = "remote_branches().. | parents(remote_branches()..)"
