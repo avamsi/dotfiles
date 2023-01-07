@@ -15,9 +15,8 @@ jjwatch() {
 		# TODO: tmux clear-history as well?
 		header="$(clear)Every 1.0s: jj log && summary %-$(($(tput cols) - 59))s $(date)"
 		log=$(jj --color=always log --reversed)
-		reset='\e[0m'
-		pcc="| Parent commit changes:\n$(jj --color=always show --summary @- | tail -n +7 | indent)$reset"
-		wcc="@ Working copy changes:\n$(jj --color=always show --summary @ | tail -n +7 | indent)$reset"
+		pcc="| Parent commit changes:\n$(jj --color=always diff --summary --revision=@- | indent)"
+		wcc="@ Working copy changes:\n$(jj --color=always diff --summary --revision=@ | indent)"
 		printf "$header\n\n$log\n\n$pcc\n\n$wcc"
 	done
 }

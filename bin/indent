@@ -1,18 +1,6 @@
 #!/usr/bin/env zsh
 
+reset='\e[0m'
 while read line; do
-	print "\t$line"
+	print "\t$line$reset"
 done
-
-# Snippet below worked best on Linux (with colors e.t.c. working well) but looks
-# like script on macOS is different and the much simplified snippet above works
-# just as well (although it pipes I/O instead of triggering a command).
-# Note: for whatever reason, output from jj commands need a reset after indent.
-
-# cmd="$*"
-# (
-# 	IFS=$'\n'
-# 	for line in $(script -efq /dev/null -c $cmd); do
-# 		print "\t$line"
-# 	done
-# )
