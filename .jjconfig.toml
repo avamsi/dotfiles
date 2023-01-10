@@ -8,3 +8,10 @@
 [merge-tools]
 	vscode.program = "code"
 	vscode.merge-args = ["--new-window", "--wait", "--merge", "$left", "$right", "$base", "$output"]
+
+[revset-aliases]
+	avamsi-main = "present(main) | present(master)"
+	# 1. Main branch and descendants till the current revision.
+	# 2. Changes not part of any remote branches (including ancestors).
+	# 3. Parents of #2 (mainly to distinguish "submitted" vs unsubmitted changes).
+	avamsi-interesting = "(avamsi-main:@) | (remote_branches()..) | parents(remote_branches()..)"
