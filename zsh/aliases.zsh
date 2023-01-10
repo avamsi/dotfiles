@@ -8,23 +8,25 @@ alias ll='ls -al'
 alias micro='tmicro'
 alias re='grep -inrI'
 
+_jj_color() {
+	jj --color=always --config-toml='ui.relative-timestamps=true' $@
+}
+
 jjwatch() {
 	tput civis
-	local header
 	while sleep 1; do
 		# TODO: tmux clear-history as well?
-		header="$(clear)Every 1.0s: jj log && summary %-$(($(tput cols) - 59))s $(date)"
-		log=$(jj --color=always log --reversed)
-		pcc="| Parent commit changes:\n$(jj --color=always diff --summary --revision=@- | indent)"
-		wcc="@ Working copy changes:\n$(jj --color=always diff --summary --revision=@ | indent)"
+		local header="$(clear)Every 1.0s: jj log && summary %-$(($(tput cols) - 59))s $(date)"
+		local log="$(_jj_color log --reversed --revisions='remote_branches().. | parents(remote_branches()..)')"
+		local pcc="| Parent commit changes:\n$(_jj_color diff --summary --revision=@- | indent)"
+		local wcc="@ Working copy changes:\n$(_jj_color diff --summary --revision=@ | indent)"
 		printf "$header\n\n$log\n\n$pcc\n\n$wcc"
 	done
 }
 
 # Like cd, but for tmux sessions, creates a session if needed.
 td() {
-	local session
-	session=$1
+	local session=$1
 	shift
 	tmux new-session -s $session -d 2> /dev/null && {
 		if [[ $# -ne 0 ]]; then
