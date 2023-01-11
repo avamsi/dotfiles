@@ -2,6 +2,9 @@
 	name = "Vamsi Avula"
 	email = "avamsi07@gmail.com"
 
+[alias]
+	reword = ["describe"]
+
 [ui]
 	merge-editor = "vscode"
 
