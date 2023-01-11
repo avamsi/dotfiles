@@ -8,8 +8,8 @@ alias ll='ls -al'
 alias micro='tmicro'
 alias re='grep -inrI'
 
-_jj_color() {
-	jj --color=always --config-toml='ui.relative-timestamps=true' $@
+_local_jj() {
+	jj --no-commit-working-copy --color=always --config-toml='ui.relative-timestamps=true' $@
 }
 
 jjwatch() {
@@ -17,10 +17,10 @@ jjwatch() {
 	while sleep 1; do
 		# TODO: tmux clear-history as well?
 		local header="$(clear)Every 1.0s: jj log && summary %-$(($(tput cols) - 59))s $(date)"
-		local log="$(_jj_color log --reversed --revisions=avamsi-interesting)"
+		local log="$(_local_jj log --reversed --revisions=avamsi-interesting)"
 		# TODO: add jj resolve --list?
-		local pcc="| Parent commit changes:\n$(_jj_color diff --summary --revision=@- | indent)"
-		local wcc="@ Working copy changes:\n$(_jj_color diff --summary --revision=@ | indent)"
+		local pcc="| Parent commit changes:\n$(_local_jj diff --summary --revision=@- | indent)"
+		local wcc="@ Working copy changes:\n$(_local_jj diff --summary --revision=@ | indent)"
 		printf "$header\n\n$log\n\n$pcc\n\n$wcc"
 	done
 }
