@@ -9,8 +9,9 @@ export DISPLAY=':0'
 export EDITOR='tmicro'
 export TERM='xterm-256color'
 
-export PATH="$HOME/dotfiles/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$PATH"
 
 HISTFILE=~/.zsh/history
 HISTSIZE=1000000
