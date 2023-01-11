@@ -20,7 +20,9 @@ jjwatch() {
 		local log="$(_local_jj log --reversed --revisions=avamsi-interesting)"
 		# TODO: add jj resolve --list?
 		local pcc="| Parent commit changes:\n$(_local_jj diff --summary --revision=@- | indent)"
-		local wcc="@ Working copy changes:\n$(_local_jj diff --summary --revision=@ | indent)"
+		# We intentionally use jj directly here instead of the _local_jj alias to let
+		# jj automatically commit things to the working copy.
+		local wcc="@ Working copy changes:\n$(jj --color=always diff --summary --revision=@ | indent)"
 		printf "$header\n\n$log\n\n$pcc\n\n$wcc"
 	done
 }
