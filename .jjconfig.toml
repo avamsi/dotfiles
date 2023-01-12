@@ -14,5 +14,5 @@
 
 [revset-aliases]
 	origin-main = "present(main@origin) | present(master@origin)"
-	unmerged = "author(avamsi07@gmail.com) & origin-main.."
-	interesting = "origin-main | origin-main:@ | parents(unmerged) | unmerged"
+	origin-unmerged = 'remote_branches("", origin)..'
+	interesting = "origin-main | parents(origin-unmerged) | origin-unmerged"
