@@ -17,7 +17,7 @@ jjwatch() {
 	while sleep 1; do
 		# TODO: tmux clear-history as well?
 		local header="$(clear)Every 1.0s: jj log && summary %-$(($(tput cols) - 59))s $(date)"
-		local log="$(_local_jj log --reversed --revisions=avamsi-interesting)"
+		local log="$(_local_jj log --reversed --revisions=interesting)"
 		# TODO: add jj resolve --list?
 		local pcc="| Parent commit changes:\n$(_local_jj diff --summary --revision=@- | indent)"
 		# We intentionally use jj directly here instead of the _local_jj alias to let
