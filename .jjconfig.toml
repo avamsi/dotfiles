@@ -3,6 +3,7 @@
 	email = "avamsi07@gmail.com"
 
 [alias]
+	am = ["amend"]
 	reword = ["describe"]
 
 [ui]
