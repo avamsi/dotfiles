@@ -7,6 +7,7 @@
 	reword = ["describe"]
 
 [ui]
+	graph.format = "curved"
 	merge-editor = "vscode"
 
 [merge-tools]
@@ -16,4 +17,6 @@
 [revset-aliases]
 	origin-main = "present(main@origin) | present(master@origin)"
 	origin-unmerged = 'remote_branches("", origin)..'
-	interesting = "origin-main | parents(origin-unmerged) | origin-unmerged"
+	# TODO: restricting to just my commits should not be needed.
+	origin-unmerged-mine = 'origin-unmerged & author(avamsi07@gmail.com)'
+	interesting = "origin-main | parents(origin-unmerged-mine) | origin-unmerged-mine"
