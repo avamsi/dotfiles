@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+jj --color=always --no-commit-working-copy log \
+	--no-graph \
+	--template='author.email() " " author.timestamp().ago() " " branches "\n" "\n" description "\n"' \
+	--revisions="$*"
+jj --color=always --no-commit-working-copy diff --summary --revision="$*"

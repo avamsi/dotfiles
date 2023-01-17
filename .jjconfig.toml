@@ -4,6 +4,7 @@
 
 [alias]
 	am = ["amend"]
+	id = ["log", "--no-graph", "--template=commit_id.short()", "-r"]
 	reword = ["describe"]
 
 [ui]
@@ -17,6 +18,4 @@
 [revset-aliases]
 	origin-main = "present(main@origin) | present(master@origin)"
 	origin-unmerged = 'remote_branches("", origin)..'
-	# TODO: restricting to just my commits should not be needed.
-	origin-unmerged-mine = 'origin-unmerged & author(avamsi07@gmail.com)'
-	interesting = "origin-main | parents(origin-unmerged-mine) | origin-unmerged-mine"
+	interesting = "origin-main | parents(origin-unmerged) | origin-unmerged"

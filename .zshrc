@@ -52,5 +52,20 @@ export FZF_CTRL_R_OPTS='
 export FZF_TMUX=1
 export FZF_TMUX_OPTS='-p 80%'
 
+_fzf_complete_jj() {
+	_fzf_complete \
+		--preview 'jjshow {1}' \
+		--preview-window wrap -- "$@" < <(
+			jj --no-commit-working-copy log \
+				--no-graph \
+				-T 'commit_id.short() " " description.first_line() " " branches "\n"' \
+				-r interesting
+		)
+}
+
+_fzf_complete_jj_post() {
+	cut -d ' ' -f1
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
