@@ -13,7 +13,9 @@ _local_jj() {
 }
 
 jjwatch() {
-	tput civis
+	# Make the cursor invisible and turn off automatic margins (i.e., word wrapping).
+	# Can be undone by cnorm and smam respectively.
+	tput civis && tput rmam
 	while sleep 1; do
 		# TODO: tmux clear-history as well?
 		local header="$(clear)Every 1.0s: jj log && summary %-$(($(tput cols) - 59))s $(date)"
