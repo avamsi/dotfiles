@@ -2,6 +2,6 @@
 
 jj --color=always --no-commit-working-copy log \
 	--no-graph \
-	--template='committer.email() " " committer.timestamp().ago() " " branches "\n" "\n" description "\n"' \
+	--template='author.email() " " committer.timestamp().ago() " " branches "\n" "\n" description "\n"' \
 	--revisions="$*"
 jj --color=always --no-commit-working-copy diff --summary --revision="$*"
