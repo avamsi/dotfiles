@@ -7,6 +7,9 @@
 	id = ["log", "--no-graph", "--template=commit_id.short()", "-r"]
 	reword = ["describe"]
 
+[colors]
+	working_copy.underlined = true
+
 [ui]
 	graph.format = "curved"
 	merge-editor = "vscode"
