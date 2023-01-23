@@ -1,24 +1,32 @@
 [user]
-	name = "Vamsi Avula"
-	email = "avamsi07@gmail.com"
+	name = 'Vamsi Avula'
+	email = 'avamsi07@gmail.com'
 
 [alias]
-	am = ["amend"]
-	id = ["log", "--no-graph", "--template=commit_id.short()", "-r"]
-	reword = ["describe"]
+	am = ['amend']
+	branches = ['log', '--no-graph', '--template=branches " "']
+	ids = ['log', '--no-graph', '--template=commit_id.short() " "']
+	reword = ['describe']
+	rollback = ['backout']
+	torebase = ['ids', '--revisions=torebase']
 
 [colors]
 	working_copy.underlined = true
 
+[git]
+	fetch = ['fork', 'origin']
+	push = 'fork'
+
 [ui]
-	graph.format = "curved"
-	merge-editor = "vscode"
+	graph.format = 'curved'
+	merge-editor = 'vscode'
 
 [merge-tools]
-	vscode.program = "code"
-	vscode.merge-args = ["--new-window", "--wait", "--merge", "$left", "$right", "$base", "$output"]
+	vscode.program = 'code'
+	vscode.merge-args = ['--new-window', '--wait', '--merge', '$left', '$right', '$base', '$output']
 
 [revset-aliases]
-	origin-main = "present(main@origin) | present(master@origin)"
-	origin-unmerged = 'remote_branches("", origin)..'
-	interesting = "origin-main | parents(origin-unmerged) | origin-unmerged"
+	og = 'present(main@origin) | present(master@origin)'
+	unsubmitted = 'remote_branches("", origin)..'
+	torebase = 'unsubmitted ~ descendants(og)'
+	interesting = 'og | parents(unsubmitted) | unsubmitted'
