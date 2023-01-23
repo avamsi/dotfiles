@@ -8,6 +8,12 @@ alias ls='ls --classify --color'
 alias micro='tmicro'
 alias re='grep -inrI'
 
+cd() {
+	builtin cd $@ || {
+		local d=$(rd $@) && builtin cd $d && print "rd: cd'ed to $d"
+	}
+}
+
 _local_jj() {
 	jj --no-commit-working-copy --color=always --config-toml='ui.relative-timestamps=true' $@
 }
