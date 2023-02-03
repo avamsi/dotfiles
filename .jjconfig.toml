@@ -2,7 +2,7 @@
 	name = 'Vamsi Avula'
 	email = 'avamsi07@gmail.com'
 
-[alias]
+[aliases]
 	am = ['amend']
 	branches = ['log', '--no-graph', '--template=branches " "']
 	ids = ['log', '--no-graph', '--template=commit_id.short() " "']
@@ -11,15 +11,11 @@
 	torebase = ['ids', '--revisions=torebase']
 
 [colors]
-	working_copy.underlined = true
+	working_copy.underline = true
 
 [git]
 	fetch = ['fork', 'origin']
 	push = 'fork'
-
-[ui]
-	graph.format = 'curved'
-	merge-editor = 'vscode'
 
 [merge-tools]
 	vscode.program = 'code'
@@ -30,3 +26,7 @@
 	unsubmitted = 'remote_branches("", origin)..'
 	torebase = 'unsubmitted ~ descendants(og)'
 	interesting = 'og | parents(unsubmitted) | unsubmitted'
+
+[ui]
+	graph.style = 'curved'
+	merge-editor = 'vscode'

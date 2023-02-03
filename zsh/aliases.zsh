@@ -15,7 +15,7 @@ cd() {
 }
 
 _local_jj() {
-	jj --no-commit-working-copy --color=always --config-toml='ui.relative-timestamps=true' $@
+	jj --ignore-working-copy --color=always --config-toml='ui.relative-timestamps=true' $@
 }
 
 jjwatch() {
