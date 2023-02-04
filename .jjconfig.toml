@@ -21,8 +21,14 @@
 	fetch = ['fork', 'origin']
 	push = 'fork'
 
+[ui]
+	graph.style = 'curved'
+	diff-editor = 'vscode'
+	merge-editor = 'vscode'
+
 [merge-tools]
 	vscode.program = 'code'
+	vscode.edit-args = ['--new-window', '--wait']
 	vscode.merge-args = ['--new-window', '--wait', '--merge', '$left', '$right', '$base', '$output']
 
 [revset-aliases]
@@ -30,7 +36,3 @@
 	unsubmitted = 'remote_branches("", origin)..'
 	torebase = 'unsubmitted ~ descendants(og)'
 	interesting = 'og | parents(unsubmitted) | unsubmitted'
-
-[ui]
-	graph.style = 'curved'
-	merge-editor = 'vscode'
