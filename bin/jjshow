@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+#
+# Usage: jjshow revision
 
 jj bgc list \
 	--template='author.email() " " committer.timestamp().ago() " " branches "\n" "\n" description "\n"' \
