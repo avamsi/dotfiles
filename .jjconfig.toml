@@ -4,11 +4,15 @@
 
 [aliases]
 	am = ['amend']
-	branches = ['log', '--no-graph', '--template=branches " "']
-	ids = ['log', '--no-graph', '--template=commit_id.short() " "']
+	bg = ['--ignore-working-copy']
+	bgc = ['bg', '--color=always']
+	list = ['log', '--no-graph']
+	branches = ['list', '--template=branches " "']
+	ids = ['list', '--template=commit_id.short() " "']
 	reword = ['describe']
 	rollback = ['backout']
 	torebase = ['ids', '--revisions=torebase']
+	whatsout = ['diff', '--summary']
 
 [colors]
 	working_copy.underline = true

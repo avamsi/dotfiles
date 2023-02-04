@@ -56,10 +56,9 @@ _fzf_complete_jj() {
 	_fzf_complete \
 		--preview 'jjshow {1}' \
 		--preview-window wrap -- "$@" < <(
-			jj --no-commit-working-copy log \
-				--no-graph \
-				-T 'commit_id.short() " " description.first_line() " " branches "\n"' \
-				-r interesting
+			jj bg list \
+				--template='commit_id.short() " " description.first_line() " " branches "\n"' \
+				--revisions=interesting
 		)
 }
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
-jj --color=always --ignore-working-copy log \
-	--no-graph \
+jj bgc list \
 	--template='author.email() " " committer.timestamp().ago() " " branches "\n" "\n" description "\n"' \
 	--revisions="$*"
-jj --color=always --ignore-working-copy diff --summary --revision="$*"
+jj bgc whatsout --revision="$*"
