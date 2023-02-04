@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
-jj --color=always --no-commit-working-copy log \
+jj --color=always --ignore-working-copy log \
 	--no-graph \
 	--template='author.email() " " committer.timestamp().ago() " " branches "\n" "\n" description "\n"' \
 	--revisions="$*"
-jj --color=always --no-commit-working-copy diff --summary --revision="$*"
+jj --color=always --ignore-working-copy diff --summary --revision="$*"
