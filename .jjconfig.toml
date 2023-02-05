@@ -22,9 +22,10 @@
 	push = 'fork'
 
 [ui]
-	graph.style = 'curved'
 	diff-editor = 'vscode'
 	merge-editor = 'vscode'
+	graph.style = 'curved'
+	log-id-preferred-length = 7
 
 [merge-tools]
 	vscode.program = 'code'
