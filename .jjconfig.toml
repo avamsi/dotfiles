@@ -26,6 +26,7 @@
 	merge-editor = 'vscode'
 	graph.style = 'curved'
 	log-id-preferred-length = 7
+	relative-timestamps = true
 
 [merge-tools]
 	vscode.program = 'code'

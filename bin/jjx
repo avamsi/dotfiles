@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+#
+# Usage: jjx
+
+# TODO: add jj resolve --list?
+print "@ Working copy changes:"
+# We intentionally don't use bg(c) here to let jj automatically commit
+# changes to the working copy (so it's not stale on output).
+jj --color=always whatsout --revision=@ | indent
+print "\n| Parent commit changes:"
+jj bgc whatsout --revision=@- | indent
+print
+jj bgc log --revisions=interesting
