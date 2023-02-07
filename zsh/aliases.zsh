@@ -3,7 +3,7 @@ alias ..='cd ..'
 # https://github.com/wincent/clipper
 alias clip='tee >(nc -N localhost 8377)'
 alias grep='grep --color'
-alias jjwatch='viddy --unfold jjx'
+alias jjw='viddy --unfold jjx'
 alias ll='ls -al'
 alias ls='ls --classify --color'
 alias micro='tmicro'
