@@ -25,7 +25,7 @@
 	diff-editor = 'vscode'
 	merge-editor = 'vscode'
 	graph.style = 'curved'
-	log-id-preferred-length = 7
+	log-id-preferred-length = 1
 	relative-timestamps = true
 
 [merge-tools]
