@@ -8,6 +8,7 @@ alias ll='ls -al'
 alias ls='ls --classify --color'
 alias micro='tmicro'
 alias re='grep -inrI'
+alias sudo='sudo '
 
 cd() {
 	# Keep the original cd error hidden for if rd succeeds below.
