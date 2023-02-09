@@ -1,7 +1,7 @@
 alias ...='cd ../..'
 alias ..='cd ..'
 # https://github.com/wincent/clipper
-alias clip='tee >(nc -N localhost 8377)'
+# alias clip='tee >(nc -N localhost 8377)'
 alias grep='grep --color'
 alias jjw='viddy --unfold "jjx 2>&1"'
 alias ll='ls -al'
