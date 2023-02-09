@@ -1,0 +1,3 @@
+# git config --global core.excludesFile '~/dotfiles/global.gitignore'
+
+**/*.nfs*
