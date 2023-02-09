@@ -1,8 +1,8 @@
 {
     "colorscheme": "darcula",
     "fastdirty": true,
-    "pluginchannels": [
-        "https://raw.githubusercontent.com/micro-editor/plugin-channel/master/channel.json"
-    ],
-    "pluginrepos": []
+    "hlsearch": true,
+    "mkparents": true,
+    "softwrap": true,
+    "wordwrap": true
 }
