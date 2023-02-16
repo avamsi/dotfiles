@@ -22,14 +22,16 @@
 	fetch = ['fork', 'origin']
 	push = 'fork'
 
-[merge-tools]
-	vscode = {
-		program = 'code'
-		# Note: VS Code's --diff mode doesn't support diffing folders.
-		# TODO: try https://marketplace.visualstudio.com/items?itemName=moshfeu.compare-folders.
-		edit-args = ['--new-window', '--wait', '$left', '$right']
-		merge-args = ['--new-window', '--wait', '--merge', '$left', '$right', '$base', '$output']
-	}
+[merge-tools.vscode]
+	program = 'code'
+	# Note: we don't use VS Code's --diff mode as it doesn't support diffing folders.
+	# TODO: try https://marketplace.visualstudio.com/items?itemName=moshfeu.compare-folders.
+	edit-args = ['--new-window', '--wait', '$left', '$right']
+	merge-args = ['--new-window', '--wait', '--merge', '$left', '$right', '$base', '$output']
+
+[ui]
+	diff-editor = 'vscode'
+	merge-editor = 'vscode'
 
 [revset-aliases]
 	og = 'present(main@origin) | present(master@origin)'
@@ -41,8 +43,3 @@
 	'format_short_id(id)' = 'id.shortest()'
 	'format_short_signature(signature)' = 'signature.username()'
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
-
-[ui]
-	# diff-editor = 'vscode'
-	# merge-editor = 'vscode'
-	graph.style = 'curved'
