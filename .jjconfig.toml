@@ -8,6 +8,10 @@
 	bgc = ['bg', '--color=always']
 	list = ['log', '--no-graph']
 	branches = ['list', '--template=branches " "']
+	delta = [
+		'''--config-toml=ui.pager=[
+			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
+		'diff', '--git']
 	ids = ['list', '--template=commit_id.short() " "']
 	reword = ['describe']
 	rollback = ['backout']
@@ -27,7 +31,8 @@
 	# Note: we don't use VS Code's --diff mode as it doesn't support diffing folders.
 	# TODO: try https://marketplace.visualstudio.com/items?itemName=moshfeu.compare-folders.
 	edit-args = ['--new-window', '--wait', '$left', '$right']
-	merge-args = ['--new-window', '--wait', '--merge', '$left', '$right', '$base', '$output']
+	merge-args = [
+		'--new-window', '--wait', '--merge', '$left', '$right', '$base', '$output']
 
 [ui]
 	diff-editor = 'vscode'
