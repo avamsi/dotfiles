@@ -56,7 +56,7 @@ export FZF_TMUX_OPTS='-p 80%'
 
 _fzf_complete_jj() {
 	_fzf_complete \
-		--preview 'jjshow {1}' \
+		--preview 'jj bgc show --summary {1}' \
 		--preview-window wrap -- "$@" < <(
 			jj bg list \
 				--template='commit_id.short() " " description.first_line() " " branches "\n"' \

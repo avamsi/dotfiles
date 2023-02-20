@@ -48,3 +48,12 @@
 	'format_short_id(id)' = 'id.shortest()'
 	'format_short_signature(signature)' = 'label("email", signature.username())'
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
+	show = '''
+change_id.shortest() " " author.email() " " committer.timestamp().ago()
+" " if(branches, branches " ") commit_id.short()
+"\n"
+"\n"
+if(empty, label("empty", "(empty) "))
+if(description, description, description_placeholder "\n")
+"\n"
+'''
