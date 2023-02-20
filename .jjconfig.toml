@@ -64,4 +64,8 @@
         augment_description(description, "")
         "\n"
     '''
-	oneline = 'commit_id.shortest() " " augment_description(description, "_") "\n"'
+	oneline = '''
+        commit_id.shortest(7) " | " augment_description(description, "_")
+        " | " if(branches, branches " | ") change_id.shortest(7)
+        "\n"
+    '''
