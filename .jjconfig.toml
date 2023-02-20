@@ -7,15 +7,17 @@
 	bg = ['--ignore-working-copy']
 	bgc = ['bg', '--color=always']
 	list = ['log', '--no-graph']
-	branches = ['list', '--template=branches " "']
+	branches = ['list', '--template=branches "\n"']
 	delta = [
 		'''--config-toml=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
 		'diff', '--git']
-	ids = ['list', '--template=commit_id.short() " "']
+	ids = ['list', '--template=commit_id.short() "\n"']
+	rebaseall = [
+		'rebase',
+		'--source=roots(torebase)', '--destination=og', '--allow-large-revsets']
 	reword = ['describe']
 	rollback = ['backout']
-	torebase = ['ids', '--revisions=torebase']
 	up = ['checkout']
 	whatsout = ['diff', '--summary']
 
@@ -28,8 +30,10 @@
 
 [merge-tools.vscode]
 	program = 'code'
-	# Note: we don't use VS Code's --diff mode as it doesn't support diffing folders.
-	# TODO: try https://marketplace.visualstudio.com/items?itemName=moshfeu.compare-folders.
+	# Note: we don't use VS Code's --diff mode as it doesn't support diffing
+	# folders like jj expects diff-editor to (looks like most diff tools don't).
+	# TODO: try writing a script to translate folders to one file at a time or
+	# https://marketplace.visualstudio.com/items?itemName=moshfeu.compare-folders.
 	edit-args = ['--new-window', '--wait', '$left', '$right']
 	merge-args = [
 		'--new-window', '--wait', '--merge', '$left', '$right', '$base', '$output']
@@ -53,19 +57,23 @@
             description_placeholder if(first_line, "", "\n")
         )
     '''
-	'format_short_id(id)' = 'id.shortest()'
+	'format_short_id(id)' = 'id.shortest()'	
+	# For when a short ID is desired along with a (mostly*) fixed length for
+	# alignment etc.. * "mostly" because IDs can sometimes be longer if the
+	# prefix of desired length is not unique.
+	'format_shortest_id(id)' = 'id.shortest(7)'
 	'format_short_signature(signature)' = 'label("email", signature.username())'
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
 	show = '''
-        change_id.shortest() " " author.email() " " committer.timestamp().ago()
-        " " if(branches, branches " ") commit_id.short()
+        format_short_id(change_id) " " author.email() " " committer.timestamp().ago()
+        " " if(branches, branches " ") format_shortest_id(commit_id)
         "\n"
         "\n"
         augment_description(description, "")
         "\n"
     '''
 	oneline = '''
-        commit_id.shortest(7) " | " augment_description(description, "_")
-        " | " if(branches, branches " | ") change_id.shortest(7)
+        format_shortest_id(commit_id) " | " augment_description(description, "_")
+        " | " if(branches, branches " | ") format_shortest_id(change_id)
         "\n"
     '''
