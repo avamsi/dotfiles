@@ -1,19 +1,22 @@
 [user]
 	name = Vamsi Avula
 	email = avamsi07@gmail.com
+
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 
 [alias]
-	ca = !git add -A && git commit --amend
-	ci = !git add -A && git commit
+	am = !git add --all && git commit --amend
+	ci = !git add --all && git commit
 
 [branch]
 	autosetuprebase = always
+
 [push]
-	default = tracking
+	default = upstream
 
 [merge]
 	tool = vscode
+
 [mergetool "vscode"]
-	cmd = code --wait $MERGED
+	cmd = code --new-window --wait $MERGED
