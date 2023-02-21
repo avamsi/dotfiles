@@ -20,19 +20,6 @@ cd() {
 	}
 }
 
-jjs() {
-	print 'Fetching.. ' && jj bg git fetch && print 'Done' && \
-		print 'Pushing.. ' && jj bg git push --deleted && {
-			jj bg rebaseall 2>/dev/null && jj bg hideempty && \
-				# Update to og iff @- is submitted and @ is empty.
-				# This is achieved by running `up` with a revset that expands to
-				# just og iff above conditions are met, multiple revisions
-				# otherwise (which is an error and a no-op).
-				jj bg up 'og | (@- & unsubmitted) | (@ ~ empty())' 2>/dev/null
-			true
-		}
-}
-
 # Like cd, but for tmux sessions, creates a session if needed.
 td() {
 	local session=$1
