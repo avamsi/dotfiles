@@ -21,7 +21,7 @@ cd() {
 }
 
 jjs() {
-	print 'Fetching.. ' && jj bg git fetch && print 'Done' \
+	print 'Fetching.. ' && jj bg git fetch && print 'Done' && \
 		print 'Pushing.. ' && jj bg git push --deleted && {
 			jj bg rebaseall 2>/dev/null && jj bg hideempty && \
 				# Update to og iff @- is submitted and @ is empty.
