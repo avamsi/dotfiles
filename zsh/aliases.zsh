@@ -21,8 +21,8 @@ cd() {
 }
 
 jjs() {
-	printf 'Fetching.. ' && jj bg git fetch && \
-		printf '\rPushing.. ' && jj bg git push --deleted && {
+	print 'Fetching.. ' && jj bg git fetch && print 'Done' \
+		print 'Pushing.. ' && jj bg git push --deleted && {
 			jj bg rebaseall 2>/dev/null && jj bg hideempty && \
 				# Update to og iff @- is submitted and @ is empty.
 				# This is achieved by running `up` with a revset that expands to
