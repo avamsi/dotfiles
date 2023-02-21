@@ -24,9 +24,10 @@ jjs() {
 	printf 'Fetching.. ' && jj bg git fetch && \
 		printf '\rPushing.. ' && jj bg git push --deleted && {
 			jj bg rebaseall 2>/dev/null && jj bg hideempty && \
-				# Update to og if and only if @- is submitted and @ is empty.
-				# This is achieved by running `up` with a revset that could
-				# expand to just og or multiple revisions (which is an error).
+				# Update to og iff @- is submitted and @ is empty.
+				# This is achieved by running `up` with a revset that expands to
+				# just og iff above conditions are met, multiple revisions
+				# otherwise (which is an error and a no-op).
 				jj bg up 'og | (@- & unsubmitted) | (@ ~ empty())' 2>/dev/null
 			true
 		}
