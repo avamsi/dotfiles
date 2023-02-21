@@ -12,6 +12,7 @@
 		'''--config-toml=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
 		'diff', '--git']
+	hideempty = ['hide', 'unsubmitted & empty()']
 	ids = ['list', '--template=commit_id.short() "\n"']
 	rebaseall = [
 		'rebase',

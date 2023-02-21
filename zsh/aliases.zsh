@@ -20,6 +20,13 @@ cd() {
 	}
 }
 
+jjs() {
+	printf "Fetch: " && jj git fetch && \
+		printf "Push: " && jj git push --deleted && \
+			printf "Rebase: " && jj rebaseall && jj hideempty && \
+				printf "Up: " jj up 'og | (unsubmitted & @-)'
+}
+
 # Like cd, but for tmux sessions, creates a session if needed.
 td() {
 	local session=$1
