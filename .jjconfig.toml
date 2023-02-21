@@ -44,24 +44,24 @@
             description_placeholder if(first_line, "", "\n")
         )
     '''
-	'format_short_id(id)' = 'id.shortest()'	
 	# For when a short ID is desired along with a (mostly*) fixed length for
 	# alignment etc.. * "mostly" because IDs can sometimes be longer if the
 	# prefix of desired length is not unique.
-	'format_shortest_id(id)' = 'id.shortest(7)'
+	'default_shortest_id(id)' = 'id.shortest(7)'
+	'format_short_id(id)' = 'id.shortest()'
 	'format_short_signature(signature)' = 'label("email", signature.username())'
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
 	show = '''
         format_short_id(change_id) " " author.email() " " committer.timestamp().ago()
-        " " if(branches, branches " ") format_shortest_id(commit_id)
+        " " if(branches, branches " ") default_shortest_id(commit_id)
         "\n"
         "\n"
         augment_description(description, "")
         "\n"
     '''
 	oneline = '''
-        format_shortest_id(commit_id) " | " augment_description(description, "_")
-        " | " if(branches, branches " | ") format_shortest_id(change_id)
+        default_shortest_id(commit_id) " | " augment_description(description, "_")
+        " | " if(branches, branches " | ") default_shortest_id(change_id)
         "\n"
     '''
 
