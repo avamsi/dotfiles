@@ -37,6 +37,10 @@ func (Dotfiles) Link() error {
 			}
 			// We only want to symlink "dotfiles".
 		} else if strings.HasPrefix(rel, ".") {
+			// Skip dotfiles that are not related to actual dotfiles.
+			if d.Name() == ".gitmodules" {
+				return nil
+			}
 			// Manually skip .gitignore and its contents.
 			if d.Name() == ".gitignore" || strings.HasSuffix(d.Name(), ".zsh.zwc") {
 				return nil
