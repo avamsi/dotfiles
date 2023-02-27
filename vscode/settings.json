@@ -1,6 +1,7 @@
 {
     "editor.bracketPairColorization.enabled": true,
-    "editor.fontFamily": "menlo",
+    // "editor.fontFamily": "menlo",
+    // "editor.fontSize": 12,
     "editor.formatOnType": true,
     "editor.guides.bracketPairs": "active",
     "editor.inlayHints.enabled": "offUnlessPressed",
@@ -23,8 +24,8 @@
     "window.commandCenter": true,
     "window.zoomLevel": 1,
     "workbench.colorTheme": "Flatland_Dark",
+    "workbench.editor.enablePreview": false,
     "workbench.editor.untitled.hint": "hidden",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none",
-    "workbench.editor.enablePreview": false,
 }
