@@ -37,13 +37,13 @@
 
 [template-aliases]
 	'augment_description(description, first_line)' = '''
-        if(empty, label("empty", "(empty) "))
-        if(
-            description,
-            if(first_line, description.first_line(), description),
-            description_placeholder if(first_line, "", "\n")
-        )
-    '''
+		if(empty, label("empty", "(empty) ")) ++
+		if(
+			description,
+			if(first_line, description.first_line(), description),
+			description_placeholder ++ if(first_line, "", "\n")
+		)
+	'''
 	# For when a short ID is desired along with a (mostly*) fixed length for
 	# alignment etc.. * "mostly" because IDs can sometimes be longer if the
 	# prefix of desired length is not unique.
@@ -52,18 +52,26 @@
 	'format_short_signature(signature)' = 'label("email", signature.username())'
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
 	show = '''
-        format_short_id(change_id) " " author.email() " " committer.timestamp().ago()
-        " " if(branches, branches " ") default_shortest_id(commit_id)
-        "\n"
-        "\n"
-        augment_description(description, "")
-        "\n"
-    '''
+		separate(" ",
+			format_short_id(change_id),
+			author.email(),
+			committer.timestamp().ago(),
+			branches,
+			default_shortest_id(commit_id)
+		) ++
+		"\n\n" ++
+		augment_description(description, "") ++
+		"\n"
+	'''
 	oneline = '''
-        default_shortest_id(commit_id) " | " augment_description(description, "_")
-        " | " if(branches, branches " | ") default_shortest_id(change_id)
-        "\n"
-    '''
+		separate(" | ",
+			default_shortest_id(commit_id),
+			augment_description(description, "_"),
+			branches,
+			default_shortest_id(change_id)
+		) ++
+		"\n"
+	'''
 
 [ui]
 	# Note: we don't use VS Code's --diff mode as it doesn't support diffing
