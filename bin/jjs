@@ -2,19 +2,19 @@
 #
 # Usage: jjs
 
-jjs::fetch() {
+_jjs_fetch() {
 	print 'Fetching.. '
 	jj bg git fetch
 	print 'Done'
 }
 
-jjs::push() {
+_jjs_push() {
 	print 'Pushing.. '
 	jj bg git push --deleted && \
 		jj bg git push --branch="$(jj branches -r og | sed 's/*//g')"
 }
 
-jjs::fetch && jjs::push && {
+_jjs_fetch && _jjs_push && {
 	# Passing --ignore-working-copy (bg) for rebaseall seems to make the
 	# workspace stale (not entirely sure why yet).
 	jj rebaseall 2>/dev/null && jj bg hideempty && \
