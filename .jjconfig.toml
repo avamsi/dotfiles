@@ -36,39 +36,47 @@
 	interesting = 'og | parents(unsubmitted) | unsubmitted'
 
 [template-aliases]
+	# Technically, conflicts apply to commits too, but alas..
+	'augment_change(change)' = '''
+		separate(" ",
+			if(divergent,
+				label("divergent", change ++ "?"),
+				change
+			),
+			working_copies,
+			if(conflict, label("conflict", "conflict"))
+		)
+	'''
+	# Technically, branches and tags apply to changes too, but alas..
+	'augment_commit(commit)' = 'separate(" ", commit, git_head, branches, tags)'
 	'augment_description(description, first_line)' = '''
 		if(empty, label("empty", "(empty) ")) ++
-		if(
-			description,
+		if(description,
 			if(first_line, description.first_line(), description),
 			description_placeholder ++ if(first_line, "", "\n")
 		)
 	'''
-	# For when a short ID is desired along with a (mostly*) fixed length for
-	# alignment etc.. * "mostly" because IDs can sometimes be longer if the
-	# prefix of desired length is not unique.
-	'default_shortest_id(id)' = 'id.shortest(7)'
 	'format_short_id(id)' = 'id.shortest()'
 	'format_short_signature(signature)' = 'label("email", signature.username())'
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
 	show = '''
-		separate(" ",
-			format_short_id(change_id),
+		separate(" | ",
+			augment_commit(commit_id.short()),
 			author.email(),
 			committer.timestamp().ago(),
-			branches,
-			default_shortest_id(commit_id)
+			augment_change(change_id.shortest())
 		) ++
 		"\n\n" ++
 		augment_description(description, "") ++
 		"\n"
 	'''
 	oneline = '''
-		separate(" | ",
-			default_shortest_id(commit_id),
-			augment_description(description, "_"),
-			branches,
-			default_shortest_id(change_id)
+		label(if(current_working_copy, "working_copy"),
+			separate(" | ",
+				augment_commit(commit_id.shortest()),
+				augment_description(description, "_"),
+				augment_change(change_id.shortest())
+			)
 		) ++
 		"\n"
 	'''
@@ -82,3 +90,4 @@
 	merge-editor = [
 		'code', '--new-window', '--wait',
 		'--merge', '$left', '$right', '$base', '$output']
+	log-word-wrap = true
