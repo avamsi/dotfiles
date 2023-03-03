@@ -21,6 +21,7 @@ cd() {
 }
 
 # Like cd, but for tmux sessions, creates a session if needed.
+# Usage: td session [command]
 td() {
 	local session=$1
 	shift
