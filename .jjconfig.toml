@@ -7,13 +7,13 @@
 	bg = ['--ignore-working-copy']
 	bgc = ['bg', '--color=always']
 	list = ['log', '--no-graph']
-	branches = ['list', '--template=branches "\n"']
+	branches = ['list', '--template=branches ++ "\n"']
 	delta = [
 		'''--config-toml=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
 		'diff', '--git']
 	hideempty = ['hide', 'empty() & unsubmitted']
-	ids = ['list', '--template=commit_id.short() "\n"']
+	ids = ['list', '--template=commit_id.short() ++ "\n"']
 	rebaseall = [
 		'rebase',
 		'--source=roots(torebase)', '--destination=og', '--allow-large-revsets']
