@@ -10,4 +10,4 @@ jj --color=always whatsout --revision=@ | indent
 print "\n| Parent commit changes:"
 jj bgc whatsout --revision=@- | indent
 print
-jj bgc log --revisions=interesting
+jj bgc log --revisions=interesting --template=oneline
