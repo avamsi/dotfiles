@@ -12,11 +12,11 @@
 		'''--config-toml=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
 		'diff', '--git']
-	hideempty = ['hide', 'empty() & unsubmitted']
+	hideempty = ['hide', 'empty() & local']
 	ids = ['list', '--template=commit_id.short() ++ "\n"']
-	rebaseall = [
+	rebasestale = [
 		'rebase',
-		'--source=roots(torebase)', '--destination=og', '--allow-large-revsets']
+		'--source=roots(localstale)', '--destination=og', '--allow-large-revsets']
 	reword = ['describe']
 	rollback = ['backout']
 	up = ['checkout']
@@ -31,9 +31,9 @@
 
 [revset-aliases]
 	og = 'present(main@origin) | present(master@origin)'
-	unsubmitted = 'remote_branches(remote=origin)..'
-	torebase = 'unsubmitted ~ descendants(og)'
-	interesting = 'og | parents(unsubmitted) | unsubmitted'
+	local = 'remote_branches(remote=origin)..'
+	localstale = 'local ~ descendants(og)'
+	interesting = 'og | parents(local) | local'
 
 [template-aliases]
 	# Technically, conflicts apply to commits too, but alas..

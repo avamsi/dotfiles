@@ -3,27 +3,25 @@
 # Usage: jjs
 
 _jjs_fetch() {
-	print 'Fetching.. '
+	print 'Fetching..'
 	jj bg git fetch
 	print 'Done'
 }
 
 _jjs_push() {
-	print 'Pushing.. '
+	print 'Pushing..'
 	jj bg git push --deleted && \
 		jj bg git push --branch="$(jj branches -r og | sed 's/*//g')"
 }
 
 _jjs_rebase() {
-	# Passing --ignore-working-copy (bg) for rebaseall seems to make the
-	# workspace stale (not entirely sure why yet).
-	jj rebaseall && {
+	jj rebasestale && {
 		jj bg hideempty
 		# Update to og iff @- is submitted and @ is empty.
 		# This is achieved by running `up` with a revset that expands to just og
 		# iff the above conditions are met or multiple revisions otherwise
 		# (which is not allowed and so a no-op ATM).
-		jj bg up 'og | (@- & unsubmitted) | (@ ~ empty())'
+		jj bg up 'og | (@- & local) | (@ ~ empty())'
 	}
 	true
 }
