@@ -27,7 +27,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$CACHE/zsh-completions"
 
-source <(jj debug completion --zsh)
+source <(jj support completion --zsh)
 compdef _jj jj
 
 source ~/dotfiles/zsh/aliases.zsh
