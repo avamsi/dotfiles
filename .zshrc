@@ -28,7 +28,6 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$CACHE/zsh-completions"
 
 source <(jj support completion --zsh)
-compdef _jj jj
 
 source ~/dotfiles/zsh/aliases.zsh
 source ~/dotfiles/zsh/keys.zsh
