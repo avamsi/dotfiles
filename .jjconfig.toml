@@ -8,13 +8,14 @@
 	bgc = ['bg', '--color=always']
 	list = ['log', '--no-graph']
 	branches = ['list', '--template=branches ++ "\n"']
+	changes = ['list', '--template=change_id.short() ++ "\n"']
+	commits = ['list', '--template=commit_id.short() ++ "\n"']
 	delta = [
 		'''--config-toml=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
 		'diff', '--git']
 	hide = ['abandon']
 	hideempty = ['hide', 'empty() & local']
-	ids = ['list', '--template=commit_id.short() ++ "\n"']
 	rebasestale = [
 		'rebase',
 		'--source=roots(localstale)', '--destination=og', '--allow-large-revsets']
