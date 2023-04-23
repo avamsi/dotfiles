@@ -5,6 +5,7 @@
 	"editor.formatOnType": true,
 	"editor.guides.bracketPairs": "active",
 	"editor.inlayHints.enabled": "offUnlessPressed",
+	"editor.inlineSuggest.enabled": true,
 	"editor.rulers": [
 		80,
 		120
@@ -23,6 +24,10 @@
 	"gitlens.statusBar.enabled": false,
 	"gitlens.telemetry.enabled": false,
 	"go.autocompleteUnimportedPackages": true,
+	"go.lintFlags": [
+		"--fast"
+	],
+	"go.lintTool": "golangci-lint",
 	"go.toolsManagement.autoUpdate": true,
 	"gopls": {
 		"ui.diagnostic.staticcheck": true
@@ -32,7 +37,7 @@
 	"telemetry.telemetryLevel": "off",
 	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 	"window.commandCenter": true,
-	"window.zoomLevel": 1,
+	// "window.zoomLevel": 1,
 	"workbench.colorTheme": "Flatland_Dark",
 	"workbench.editor.enablePreview": false,
 	"workbench.editor.untitled.hint": "hidden",
