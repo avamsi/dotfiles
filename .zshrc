@@ -11,11 +11,11 @@ export DISPLAY=':0'
 export EDITOR='tmicro'
 export TERM='xterm-256color'
 
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
+export PATH="${CARGO_HOME:-$HOME/.cargo}/bin:$PATH"
+export PATH="${GOPATH:-$HOME/go}/bin:$PATH"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
-HISTFILE="$HOME/.zsh/history"
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
 

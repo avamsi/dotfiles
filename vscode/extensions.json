@@ -9,6 +9,7 @@
 		"ms-python.vscode-pylance",
 		"ms-vscode.sublime-keybindings",
 		"pkief.material-icon-theme",
+		"rust-lang.rust-analyzer",
 		"visualstudioexptteam.vscodeintellicode"
 	]
 }
