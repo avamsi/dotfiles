@@ -17,5 +17,14 @@
 		"key": "ctrl+e",
 		"command": "-workbench.action.quickOpenNavigateNextInFilePicker",
 		"when": "inFilesPicker && inQuickOpen"
+	},
+	{
+		"key": "ctrl+q",
+		"command": "-workbench.action.quickOpenNavigateNextInViewPicker",
+		"when": "inQuickOpen && inViewsPicker"
+	},
+	{
+		"key": "ctrl+q",
+		"command": "-workbench.action.quickOpenView"
 	}
 ]
