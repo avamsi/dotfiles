@@ -4,7 +4,7 @@
 
 [aliases]
 	am = ['amend']
-	bg = ['--ignore-working-copy']
+	bg = ['--ignore-working-copy', '--no-pager']
 	bgc = ['bg', '--color=always']
 	list = ['log', '--no-graph']
 	branches = ['list', '--template=branches ++ "\n"']
