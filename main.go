@@ -11,9 +11,22 @@ import (
 	"github.com/avamsi/clifr"
 )
 
-type Dotfiles struct{}
+type Dotfiles struct {
+	Force bool
+}
 
-func (Dotfiles) Link() error {
+func (dot Dotfiles) symlink(oldname, newname string) error {
+	err := os.Symlink(oldname, newname)
+	if errors.Is(err, fs.ErrExist) && dot.Force {
+		fmt.Printf("%s already exists, attempting to symlink anyway (--force)\n", newname)
+		if err = os.Remove(newname); err == nil { // if _no_ error
+			err = os.Symlink(oldname, newname)
+		}
+	}
+	return err
+}
+
+func (dot Dotfiles) Link() error {
 	home, err := os.UserHomeDir()
 	if err != nil {
 		return err
@@ -49,7 +62,7 @@ func (Dotfiles) Link() error {
 			if err := os.MkdirAll(filepath.Dir(symlink), 0755); err != nil {
 				return err
 			}
-			if err := os.Symlink(path, symlink); err != nil {
+			if err := dot.symlink(path, symlink); err != nil {
 				if errors.Is(err, fs.ErrExist) {
 					fmt.Printf("Skipped %s;\n\t%v\n", path, err)
 					return nil
