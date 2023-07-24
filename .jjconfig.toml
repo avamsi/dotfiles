@@ -1,3 +1,4 @@
+# https://github.com/martinvonz/jj/blob/main/docs/config.md
 [user]
 	name = 'Vamsi Avula'
 	email = 'avamsi07@gmail.com'
@@ -27,6 +28,9 @@
 [colors]
 	working_copy.underline = true
 
+[core]
+	# fsmonitor = 'watchman'
+
 [git]
 	fetch = ['fork', 'origin']
 	push = 'fork'
@@ -36,6 +40,9 @@
 	local = 'remote_branches(remote=origin)..'
 	localstale = 'local ~ descendants(og)'
 	interesting = 'og | parents(local) | local'
+
+[revsets]
+	short-prefixes = 'interesting'
 
 [template-aliases]
 	# Technically, conflicts apply to commits too, but alas..
@@ -84,11 +91,9 @@
 	'''
 
 [ui]
-	# Note: we don't use VS Code's --diff mode as it doesn't support diffing
-	# folders like jj expects diff-editor to (looks like most diff tools don't).
-	# TODO: try writing a script to translate folders to one file at a time or
-	# https://marketplace.visualstudio.com/items?itemName=moshfeu.compare-folders.
-	diff-editor = ['code', '--new-window', '--wait', '$left', '$right']
+	# https://github.com/martinvonz/jj/blob/main/docs/config.md#setting-up-scm-diff-editor
+	diff-editor = ['scm-diff-editor', '--dir-diff', '$left', '$right']
+	diff-instructions = false
 	merge-editor = [
 		'code', '--new-window', '--wait',
 		'--merge', '$left', '$right', '$base', '$output']
