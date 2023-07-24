@@ -34,8 +34,10 @@ source ~/dotfiles/zsh/keys.zsh
 source ~/dotfiles/zsh/options.zsh
 source ~/dotfiles/zsh/plugins.zsh
 
-# github.com/avamsi/heimdall
-# source <(heimdall sh)
+# https://github.com/avamsi/axl
+source <(axl hooks zsh)
+
+# export AXL_NOTIFY=...
 
 [[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
 
