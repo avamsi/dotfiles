@@ -16,7 +16,7 @@
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
 		'diff', '--git']
 	hide = ['abandon']
-	hideempty = ['hide', 'empty() & local']
+	hideempty = ['hide', 'empty() & local ~ root']
 	rebasestale = [
 		'rebase',
 		'--source=roots(localstale)', '--destination=og', '--allow-large-revsets']
