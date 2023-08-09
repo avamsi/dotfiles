@@ -18,7 +18,7 @@
 	hide = ['abandon']
 	hideempty = ['hide', 'empty() & local ~ root']
 	rebasestale = [
-		'rebase', '--source=roots(localstale)', '--destination=all:og']
+		'rebase', '--source=all:roots(localstale)', '--destination=og']
 	reword = ['describe']
 	rollback = ['backout']
 	up = ['checkout']
@@ -43,6 +43,19 @@
 
 [revsets]
 	short-prefixes = 'interesting'
+
+[templates]
+	show = '''
+		separate(separator,
+			augment_commit(commit_id.shortest(12)),
+			author.email(),
+			committer.timestamp().ago(),
+			augment_change(format_short_change_id(change_id))
+		) ++
+		"\n\n" ++
+		augment_description(description, "") ++
+		"\n"
+	'''
 
 [template-aliases]
 	# Technically, conflicts apply to commits too, but alas..
@@ -69,20 +82,10 @@
 	'format_short_commit_id(id)' = 'id.shortest(7)'
 	'format_short_signature(signature)' = 'label("email", signature.username())'
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
-	builtin_log_detailed = '''
-		separate(" | ",
-			augment_commit(commit_id.shortest(12)),
-			author.email(),
-			committer.timestamp().ago(),
-			augment_change(format_short_change_id(change_id))
-		) ++
-		"\n\n" ++
-		augment_description(description, "") ++
-		"\n"
-	'''
+    separator = 'label("separator", " | ")'
 	oneline = '''
 		label(if(current_working_copy, "working_copy"),
-			separate(" | ",
+			separate(separator,
 				augment_commit(format_short_commit_id(commit_id)),
 				augment_description(description, "_"),
 				augment_change(format_short_change_id(change_id))
