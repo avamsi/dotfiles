@@ -33,7 +33,7 @@
 [git]
 	fetch = ['fork', 'origin']
 	push = 'fork'
-	push-branch-prefix = 'jj'
+	push-branch-prefix = 'jj_'
 
 [revset-aliases]
 	og = 'present(main@origin) | present(master@origin)'
