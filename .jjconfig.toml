@@ -25,6 +25,8 @@
 	whatsout = ['diff', '--summary']
 
 [colors]
+	'description placeholder' = 'red'
+	'working_copy description placeholder' = 'default'
 	working_copy.underline = true
 
 [core]
@@ -82,7 +84,7 @@
 	'format_short_commit_id(id)' = 'id.shortest(7)'
 	'format_short_signature(signature)' = 'label("email", signature.username())'
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
-    separator = 'label("separator", " | ")'
+	separator = 'label("separator", " | ")'
 	oneline = '''
 		label(if(current_working_copy, "working_copy"),
 			separate(separator,
