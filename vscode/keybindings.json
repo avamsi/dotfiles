@@ -2,20 +2,18 @@
 	{
 		"key": "alt+`",
 		"command": "workbench.action.terminal.toggleTerminal",
-		"when": "terminal.active"
 	},
 	{
 		"key": "ctrl+`",
 		"command": "-workbench.action.terminal.toggleTerminal",
-		"when": "terminal.active"
 	},
 	{
 		"key": "alt+left",
 		"command": "workbench.action.terminal.sendSequence",
 		"args": {
-			"text": "\u001b[1;3D"
+			"text": "\u001b[1;3D",
 		},
-		"when": "terminalFocus"
+		"when": "terminalFocus",
 	},
 	{
 		"key": "alt+right",
@@ -23,6 +21,10 @@
 		"args": {
 			"text": "\u001b[1;3C"
 		},
-		"when": "terminalFocus"
-	}
+		"when": "terminalFocus",
+	},
+	{
+		"key": "shift+enter",
+		"command": "-python.execSelectionInTerminal",
+	},
 ]
