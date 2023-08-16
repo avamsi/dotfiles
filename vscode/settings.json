@@ -32,6 +32,7 @@
 	"gopls": {
 		"ui.diagnostic.staticcheck": true
 	},
+	"python.analysis.typeCheckingMode": "basic",
 	"rust-analyzer.cargo.features": "all",
 	"security.workspace.trust.startupPrompt": "never",
 	"telemetry.telemetryLevel": "off",
@@ -41,9 +42,11 @@
 		"-workbench.action.quickOpenPreviousEditor",
 		"-workbench.action.quickOpenView"
 	],
+	"terminal.integrated.copyOnSelection": true,
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.fontWeightBold": "normal",
+	"terminal.integrated.rightClickBehavior": "default",
 	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 	"window.commandCenter": true,
 	// "window.zoomLevel": 1,
