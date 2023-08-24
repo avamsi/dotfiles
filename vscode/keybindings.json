@@ -4,10 +4,6 @@
 		"command": "workbench.action.terminal.toggleTerminal",
 	},
 	{
-		"key": "ctrl+`",
-		"command": "-workbench.action.terminal.toggleTerminal",
-	},
-	{
 		"key": "alt+left",
 		"command": "workbench.action.terminal.sendSequence",
 		"args": {
@@ -22,6 +18,22 @@
 			"text": "\u001b[1;3C"
 		},
 		"when": "terminalFocus",
+	},
+	{
+		"key": "ctrl+alt+right",
+		"command": "workbench.action.focusRightGroup"
+	},
+	{
+		"key": "ctrl+alt+right",
+		"command": "-workbench.action.moveEditorToNextGroup"
+	},
+	{
+		"key": "ctrl+alt+left",
+		"command": "workbench.action.focusLeftGroup"
+	},
+	{
+		"key": "ctrl+alt+left",
+		"command": "-workbench.action.moveEditorToPreviousGroup"
 	},
 	{
 		"key": "shift+enter",
