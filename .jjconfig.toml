@@ -37,6 +37,15 @@
 	push = 'fork'
 	push-branch-prefix = 'jj_'
 
+[merge-tools.folderphile]
+	edit-args = ['--left=$left', '--right=$right']
+	merge-args = [
+		'--base=$base', '--left=$left', '--right=$right', '--output=$output']
+
+[merge-tools.folderphile3]
+	program = 'folderphile'
+	edit-args = ['--left=$left', '--right=$right', '--output=$output']
+
 [revset-aliases]
 	og = 'present(main@origin) | present(master@origin)'
 	local = 'remote_branches(remote=origin)..'
@@ -101,6 +110,5 @@
 	diff-editor = ['scm-diff-editor', '--dir-diff', '$left', '$right']
 	diff-instructions = false
 	merge-editor = [
-		'code', '--new-window', '--wait',
-		'--merge', '$left', '$right', '$base', '$output']
+		'code', '--merge', '$left', '$right', '$base', '$output', '--wait']
 	log-word-wrap = true
