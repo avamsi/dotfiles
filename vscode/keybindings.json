@@ -4,11 +4,13 @@
 		"command": "workbench.action.terminal.toggleTerminal",
 	},
 	{
-		"key": "alt+left",
-		"command": "workbench.action.terminal.sendSequence",
-		"args": {
-			"text": "\u001b[1;3D",
-		},
+		"key": "alt+down",
+		"command": "workbench.action.terminal.focusNext",
+		"when": "terminalFocus",
+	},
+	{
+		"key": "alt+up",
+		"command": "workbench.action.terminal.focusPrevious",
 		"when": "terminalFocus",
 	},
 	{
@@ -16,6 +18,14 @@
 		"command": "workbench.action.terminal.sendSequence",
 		"args": {
 			"text": "\u001b[1;3C"
+		},
+		"when": "terminalFocus",
+	},
+	{
+		"key": "alt+left",
+		"command": "workbench.action.terminal.sendSequence",
+		"args": {
+			"text": "\u001b[1;3D",
 		},
 		"when": "terminalFocus",
 	},
