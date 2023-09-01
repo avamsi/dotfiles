@@ -47,6 +47,7 @@
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.fontWeightBold": "normal",
 	"terminal.integrated.rightClickBehavior": "default",
+	"terminal.integrated.tabs.enabled": false,
 	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 	"window.commandCenter": true,
 	// "window.zoomLevel": 1,
