@@ -6,6 +6,7 @@ antigen bundle Aloxaf/fzf-tab
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 antigen bundle Valiev/almostontop
+antigen bundle hlissner/zsh-autopair
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
