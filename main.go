@@ -8,16 +8,16 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/avamsi/clifr"
+	_ "embed"
+
+	"github.com/avamsi/climate"
 )
 
-type Dotfiles struct {
-	Force bool
-}
+type dotfiles struct{}
 
-func (dot Dotfiles) symlink(oldname, newname string) error {
+func link(oldname, newname string, force bool) error {
 	err := os.Symlink(oldname, newname)
-	if errors.Is(err, fs.ErrExist) && dot.Force {
+	if errors.Is(err, fs.ErrExist) && force {
 		fmt.Printf("%s already exists, attempting to symlink anyway (--force)\n", newname)
 		if err = os.Remove(newname); err == nil { // if _no_ error
 			err = os.Symlink(oldname, newname)
@@ -26,7 +26,12 @@ func (dot Dotfiles) symlink(oldname, newname string) error {
 	return err
 }
 
-func (dot Dotfiles) Link() error {
+type linkOptions struct {
+	Force bool `climate:"short"` // override any existing files
+}
+
+// Link symlinks all dotfiles to the user's home directory.
+func (*dotfiles) Link(opts *linkOptions) error {
 	home, err := os.UserHomeDir()
 	if err != nil {
 		return err
@@ -62,7 +67,7 @@ func (dot Dotfiles) Link() error {
 			if err := os.MkdirAll(filepath.Dir(symlink), 0755); err != nil {
 				return err
 			}
-			if err := dot.symlink(path, symlink); err != nil {
+			if err := link(path, symlink, opts.Force); err != nil {
 				if errors.Is(err, fs.ErrExist) {
 					fmt.Printf("Skipped %s;\n\t%v\n", path, err)
 					return nil
@@ -75,6 +80,10 @@ func (dot Dotfiles) Link() error {
 	})
 }
 
+//go:generate go run github.com/avamsi/climate/cmd/climate --out=md.climate
+//go:embed md.climate
+var md []byte
+
 func main() {
-	clifr.Execute(Dotfiles{})
+	os.Exit(climate.Run(climate.Struct[dotfiles](), climate.Metadata(md)))
 }
