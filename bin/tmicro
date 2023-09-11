@@ -2,6 +2,8 @@
 #
 # Usage: tmicro [file]
 
-tmux source ~/dotfiles/tmux/reset_keys.conf
+[[ -v TMUX ]] && tmux source ~/dotfiles/tmux/reset_keys.conf
 command micro $@
-tmux source ~/dotfiles/tmux/keys.conf
+local r=$?
+[[ -v TMUX ]] && tmux source ~/dotfiles/tmux/keys.conf
+exit $r

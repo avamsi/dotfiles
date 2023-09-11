@@ -34,7 +34,7 @@ source ~/dotfiles/zsh/plugins.zsh
 
 eval "$(direnv hook zsh)"
 
-source <(jj util completion --zsh)
+(( ${+commands[jj]} )) && source <(jj util completion --zsh)
 
 # https://github.com/avamsi/axl
 source <(axl hooks zsh)
