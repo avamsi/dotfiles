@@ -27,12 +27,14 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$CACHE/zsh-completions"
 
-source <(jj util completion --zsh)
-
 source ~/dotfiles/zsh/aliases.zsh
 source ~/dotfiles/zsh/keys.zsh
 source ~/dotfiles/zsh/options.zsh
 source ~/dotfiles/zsh/plugins.zsh
+
+eval "$(direnv hook zsh)"
+
+source <(jj util completion --zsh)
 
 # https://github.com/avamsi/axl
 source <(axl hooks zsh)
