@@ -47,8 +47,9 @@
 	edit-args = ['--left=$left', '--right=$right', '--output=$output']
 
 [revset-aliases]
+	remote = 'ancestors(remote_branches(remote=origin))'
+	local = 'all() ~ remote'
 	og = 'present(main@origin) | present(master@origin)'
-	local = 'remote_branches(remote=origin)..'
 	localstale = 'local ~ descendants(og)'
 	interesting = 'og | parents(local) | local'
 
