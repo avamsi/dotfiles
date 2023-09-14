@@ -58,6 +58,8 @@ export FZF_CTRL_R_OPTS='
 export FZF_TMUX=1
 export FZF_TMUX_OPTS='-p 80%'
 
+export FZF_COMPLETION_TRIGGER='`'
+
 _fzf_complete_jj() {
 	_fzf_complete \
 		--preview 'jj bgc show --summary {1}' \
