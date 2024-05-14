@@ -1,13 +1,12 @@
-export CACHE="${XDG_CACHE_HOME:-$HOME/.cache}"
-
 # https://github.com/romkatv/powerlevel10k#how-do-i-initialize-direnv-when-using-instant-prompt
 (( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-local ip="$CACHE/p10k-instant-prompt-${(%):-%n}.zsh"
-[[ -r "$ip" ]] && source "$ip"
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 (( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
 
@@ -17,6 +16,7 @@ export TERM='xterm-256color'
 
 export PATH="${CARGO_HOME:-$HOME/.cargo}/bin:$PATH"
 export PATH="${GOPATH:-$HOME/go}/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
 HISTFILE="$HOME/.zsh_history"
@@ -26,24 +26,19 @@ SAVEHIST=$HISTSIZE
 autoload -Uz compinit
 compinit
 
-# Also see fzf-tab in plugins.zsh.
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$CACHE/zsh-completions"
-
 source ~/dotfiles/zsh/aliases.zsh
 source ~/dotfiles/zsh/keys.zsh
 source ~/dotfiles/zsh/options.zsh
 source ~/dotfiles/zsh/plugins.zsh
 
-(( ${+commands[jj]} )) && source <(jj util completion --zsh)
+# https://github.com/martinvonz/jj
+(( ${+commands[jj]} )) && source <(jj util completion zsh)
 
 # https://github.com/avamsi/axl
-source <(axl hooks zsh)
-
+(( ${+commands[axl]} )) && source <(axl hooks zsh)
 # export AXL_NOTIFY=...
 
-[[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
+(( ${+commands[fzf]} )) && source <(fzf --zsh)
 
 export FZF_DEFAULT_OPTS='
 --color fg:242,hl:65,fg+:15,bg+:239,hl+:108
