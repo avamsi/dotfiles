@@ -9,14 +9,5 @@
 	am = !git add --all && git commit --amend
 	ci = !git add --all && git commit
 
-[branch]
-	autosetuprebase = always
-
-[push]
-	default = upstream
-
-[merge]
-	tool = vscode
-
-[mergetool "vscode"]
-	cmd = code --new-window --wait $MERGED
+[init]
+	defaultBranch = main
