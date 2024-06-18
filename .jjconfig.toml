@@ -21,7 +21,7 @@
 		'rebase', '--source=all:roots(localstale)', '--destination=og']
 	reword = ['describe']
 	rollback = ['backout']
-	up = ['checkout']
+	up = ['new']
 	whatsout = ['diff', '--summary']
 
 [colors]
@@ -107,8 +107,7 @@
 	'''
 
 [ui]
-	# https://github.com/martinvonz/jj/blob/main/docs/config.md#setting-up-scm-diff-editor
-	diff-editor = ['scm-diff-editor', '--dir-diff', '$left', '$right']
+	diff-editor = ':builtin'
 	diff-instructions = false
 	merge-editor = [
 		'code', '--merge', '$left', '$right', '$base', '$output', '--wait']
