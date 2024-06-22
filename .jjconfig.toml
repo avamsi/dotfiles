@@ -49,9 +49,10 @@
 [revset-aliases]
 	remote = 'ancestors(remote_branches(remote=origin))'
 	local = 'all() ~ remote'
+	'chain(revisions)' = 'ancestors(revisions) & local'
 	og = 'present(main@origin) | present(master@origin)'
-	localstale = 'local ~ descendants(og)'
 	interesting = 'og | parents(local) | local'
+	localstale = 'local ~ descendants(og)'
 
 [revsets]
 	short-prefixes = 'interesting'
@@ -65,7 +66,7 @@
 			augment_change(format_short_change_id(change_id))
 		) ++
 		"\n\n" ++
-		augment_description(description, "") ++
+		augment_description(description, false) ++
 		"\n"
 	'''
 
@@ -99,7 +100,7 @@
 		label(if(current_working_copy, "working_copy"),
 			separate(separator,
 				augment_commit(format_short_commit_id(commit_id)),
-				augment_description(description, "_"),
+				augment_description(description, true),
 				augment_change(format_short_change_id(change_id))
 			)
 		) ++
@@ -109,6 +110,6 @@
 [ui]
 	diff-editor = ':builtin'
 	diff-instructions = false
+	log-word-wrap = true
 	merge-editor = [
 		'code', '--merge', '$left', '$right', '$base', '$output', '--wait']
-	log-word-wrap = true
