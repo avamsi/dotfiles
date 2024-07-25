@@ -72,9 +72,10 @@
 	remote = 'ancestors(remote_branches(remote=origin))'
 	local = 'all() ~ remote'
 	'chain(revisions)' = 'ancestors(revisions) & local'
+	local_unarchived = 'local ~ archived'
 	og = 'present(main@origin) | present(master@origin)'
-	interesting = 'og | parents(local) | local ~ archived'
-	localstale = 'local ~ descendants(og) ~ archived'
+	interesting = 'og | parents(local_unarchived) | local_unarchived'
+	localstale = 'local_unarchived ~ descendants(og)'
 
 [revsets]
 	short-prefixes = 'interesting'
