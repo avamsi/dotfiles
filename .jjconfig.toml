@@ -37,6 +37,12 @@
 	push = 'fork'
 	push-branch-prefix = 'jj_'
 
+[merge-tools.code]
+	merge-args = ['--merge', '$left', '$right', '$base', '$output', '--wait']
+
+[merge-tools.difft]
+	diff-args = ['--color=always', '$left', '$right']
+
 [merge-tools.folderphile]
 	edit-args = ['--left=$left', '--right=$right']
 	merge-args = [
@@ -45,6 +51,15 @@
 [merge-tools.folderphile3]
 	program = 'folderphile'
 	edit-args = ['--left=$left', '--right=$right', '--output=$output']
+
+[merge-tools.pycharm]
+	merge-args = ['merge', '$left', '$right', '$base', '$output']
+
+[ui]
+	diff-editor = ':builtin'
+	diff-instructions = false
+	log-word-wrap = true
+	merge-editor = 'code'
 
 [revset-aliases]
 	remote = 'ancestors(remote_branches(remote=origin))'
@@ -106,10 +121,3 @@
 		) ++
 		"\n"
 	'''
-
-[ui]
-	diff-editor = ':builtin'
-	diff-instructions = false
-	log-word-wrap = true
-	merge-editor = [
-		'code', '--merge', '$left', '$right', '$base', '$output', '--wait']
