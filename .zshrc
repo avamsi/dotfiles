@@ -26,13 +26,13 @@ SAVEHIST=$HISTSIZE
 autoload -Uz compinit
 compinit
 
+# https://github.com/martinvonz/jj
+(( ${+commands[jj]} )) && source <(jj util completion zsh)
+
 source ~/dotfiles/zsh/aliases.zsh
 source ~/dotfiles/zsh/keys.zsh
 source ~/dotfiles/zsh/options.zsh
 source ~/dotfiles/zsh/plugins.zsh
-
-# https://github.com/martinvonz/jj
-(( ${+commands[jj]} )) && source <(jj util completion zsh)
 
 # https://github.com/avamsi/axl
 (( ${+commands[axl]} )) && source <(axl hooks zsh)
