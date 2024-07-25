@@ -4,10 +4,14 @@
 	email = 'avamsi07@gmail.com'
 
 [aliases]
+	list = ['log', '--no-graph']
+	archived = [
+		'list',
+		'--template=change_id ++ "\n(jj archive) " ++ unarchived',
+		'--revisions']
 	am = ['amend']
 	bg = ['--ignore-working-copy', '--no-pager']
 	bgc = ['bg', '--color=always']
-	list = ['log', '--no-graph']
 	branches = ['list', '--template=branches ++ "\n"']
 	changes = ['list', '--template=change_id.short() ++ "\n"']
 	commits = ['list', '--template=commit_id.short() ++ "\n"']
@@ -21,6 +25,8 @@
 		'rebase', '--source=all:roots(localstale)', '--destination=og']
 	reword = ['describe']
 	rollback = ['backout']
+	unarchived = [
+		'list', '--template=change_id ++ "\n" ++ unarchived', '--revisions']
 	up = ['new']
 	whatsout = ['diff', '--summary']
 
@@ -92,7 +98,6 @@
 			.remove_prefix("(jj archive)")\
 			.remove_prefix(" ")\
 			.remove_suffix("\n")"""
-	archived = '"(jj archive) " ++ unarchived'
 	# Technically, conflicts apply to commits too, but alas..
 	'augment_change(change)' = '''
 		separate(" ",
