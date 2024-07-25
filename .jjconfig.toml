@@ -62,12 +62,13 @@
 	merge-editor = 'code'
 
 [revset-aliases]
+	archived = 'description(glob:"(jj archive)*")'
 	remote = 'ancestors(remote_branches(remote=origin))'
 	local = 'all() ~ remote'
 	'chain(revisions)' = 'ancestors(revisions) & local'
 	og = 'present(main@origin) | present(master@origin)'
-	interesting = 'og | parents(local) | local'
-	localstale = 'local ~ descendants(og)'
+	interesting = 'og | parents(local) | local ~ archived'
+	localstale = 'local ~ descendants(og) ~ archived'
 
 [revsets]
 	short-prefixes = 'interesting'
@@ -86,6 +87,12 @@
 	'''
 
 [template-aliases]
+	unarchived = """
+		description\
+			.remove_prefix("(jj archive)")\
+			.remove_prefix(" ")\
+			.remove_suffix("\n")"""
+	archived = '"(jj archive) " ++ unarchived'
 	# Technically, conflicts apply to commits too, but alas..
 	'augment_change(change)' = '''
 		separate(" ",
