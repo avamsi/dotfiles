@@ -41,8 +41,8 @@ source ~/dotfiles/zsh/plugins.zsh
 (( ${+commands[fzf]} )) && source <(fzf --zsh)
 
 export FZF_DEFAULT_OPTS='
---color fg:242,hl:65,fg+:15,bg+:239,hl+:108
---color info:108,prompt:109,spinner:108,pointer:168,marker:168'
+--color="fg:242,hl:65,fg+:15,bg+:239,hl+:108"
+--color="info:108,prompt:109,spinner:108,pointer:168,marker:168"'
 # Preview can be hidden by default by adding :hidden to the preview-window.
 # print: -r to print raw string and -n to not print newline.
 export FZF_CTRL_R_OPTS='
@@ -59,8 +59,9 @@ export FZF_COMPLETION_TRIGGER='`'
 
 _fzf_complete_jj() {
 	_fzf_complete \
-		--preview 'jj bgc show --summary {1}' \
-		--preview-window wrap -- "$@" < <(
+		--preview='jj bgc show --summary {1}' \
+		--preview-window=wrap \
+		-- "$@" < <(
 			jj bg list --revisions=interesting --template=oneline
 		)
 }
