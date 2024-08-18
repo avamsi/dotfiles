@@ -3,6 +3,16 @@
 	name = 'Vamsi Avula'
 	email = 'avamsi07@gmail.com'
 
+[revset-aliases]
+	archived = 'description(glob:"(jj archive)*")'
+	remote = 'ancestors(remote_branches(remote=origin))'
+	local = 'all() ~ remote'
+	'chain(revisions)' = 'ancestors(revisions) & local'
+	local_unarchived = 'local ~ archived'
+	og = 'present(main@origin) | present(master@origin)'
+	interesting = 'og | parents(local_unarchived) | local_unarchived'
+	localstale = 'local_unarchived ~ descendants(og)'
+
 [aliases]
 	list = ['log', '--no-graph']
 	archived = [
@@ -43,9 +53,6 @@
 	push = 'fork'
 	push-branch-prefix = 'jj_'
 
-[merge-tools.code]
-	merge-args = ['--merge', '$left', '$right', '$base', '$output', '--wait']
-
 [merge-tools.difft]
 	diff-args = ['--color=always', '$left', '$right']
 
@@ -65,17 +72,7 @@
 	diff-editor = ':builtin'
 	diff-instructions = false
 	log-word-wrap = true
-	merge-editor = 'code'
-
-[revset-aliases]
-	archived = 'description(glob:"(jj archive)*")'
-	remote = 'ancestors(remote_branches(remote=origin))'
-	local = 'all() ~ remote'
-	'chain(revisions)' = 'ancestors(revisions) & local'
-	local_unarchived = 'local ~ archived'
-	og = 'present(main@origin) | present(master@origin)'
-	interesting = 'og | parents(local_unarchived) | local_unarchived'
-	localstale = 'local_unarchived ~ descendants(og)'
+	merge-editor = 'vscode'
 
 [revsets]
 	short-prefixes = 'interesting'
