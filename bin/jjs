@@ -10,8 +10,7 @@ _jjs_fetch() {
 
 _jjs_push() {
 	print 'Pushing..'
-	jj bg git push --deleted && \
-		jj bg git push --branch="$(jj branches --revisions=og | sed 's/*//g')"
+	jj bg git push --tracked
 }
 
 _jjs_rebase() {
