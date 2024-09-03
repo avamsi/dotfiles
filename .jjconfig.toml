@@ -9,7 +9,7 @@
 	local = 'all() ~ remote'
 	'chain(revisions)' = 'ancestors(revisions) & local'
 	local_unarchived = 'local ~ archived'
-	og = 'present(main@origin) | present(master@origin)'
+	og = 'trunk()'
 	interesting = 'og | parents(local_unarchived) | local_unarchived'
 	localstale = 'local_unarchived ~ descendants(og)'
 
@@ -51,7 +51,7 @@
 [git]
 	fetch = ['fork', 'origin']
 	push = 'fork'
-	push-branch-prefix = 'jj_'
+	push-branch-prefix = 'av/jj_'
 
 [merge-tools.difft]
 	diff-args = ['--color=always', '$left', '$right']
