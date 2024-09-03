@@ -78,6 +78,17 @@
 	short-prefixes = 'interesting'
 
 [templates]
+	draft_commit_description = '''
+		separate("\n",
+			description.remove_suffix("\n"),
+			if(description.contains(change_id.normal_hex()),
+				"",
+				"\nChange-Id: Id0000000" ++ change_id.normal_hex()
+			),
+			"\n",
+			surround("JJ: Changes:\n", "", indent("JJ: \t", diff.summary()))
+		)
+	'''
 	show = '''
 		separate(separator,
 			augment_commit(commit_id.shortest(12)),
