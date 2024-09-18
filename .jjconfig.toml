@@ -5,7 +5,7 @@
 
 [revset-aliases]
 	archived = 'description(glob:"(jj archive)*")'
-	remote = 'ancestors(remote_branches(remote=origin))'
+	remote = 'ancestors(remote_bookmarks(remote=origin))'
 	local = 'all() ~ remote'
 	'chain(revisions)' = 'ancestors(revisions) & local'
 	local_unarchived = 'local ~ archived'
@@ -22,7 +22,7 @@
 	am = ['amend']
 	bg = ['--ignore-working-copy', '--no-pager']
 	bgc = ['bg', '--color=always']
-	branches = ['list', '--template=branches ++ "\n"']
+	bookmarks = ['list', '--template=bookmarks ++ "\n"']
 	changes = ['list', '--template=change_id.short() ++ "\n"']
 	commits = ['list', '--template=commit_id.short() ++ "\n"']
 	delta = [
@@ -51,7 +51,7 @@
 [git]
 	fetch = ['fork', 'origin']
 	push = 'fork'
-	push-branch-prefix = 'av/jj_'
+	push-bookmark-prefix = 'av/jj_'
 
 [merge-tools.difft]
 	diff-args = ['--color=always', '$left', '$right']
@@ -118,8 +118,10 @@
 			if(conflict, label("conflict", "conflict"))
 		)
 	'''
-	# Technically, branches and tags apply to changes too, but alas..
-	'augment_commit(commit)' = 'separate(" ", commit, git_head, branches, tags)'
+	# Technically, bookmarks and tags apply to changes too, but alas..
+	'augment_commit(commit)' = '''
+		separate(" ", commit, git_head, bookmarks, tags)
+	'''
 	'augment_description(description, first_line)' = '''
 		if(empty, label("empty", "(empty) ")) ++
 		if(description,
