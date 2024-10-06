@@ -13,6 +13,50 @@
 	interesting = 'og | parents(local_unarchived) | local_unarchived'
 	localstale = 'local_unarchived ~ descendants(og)'
 
+[template-aliases]
+	# Technically, conflicts apply to commits too, but alas..
+	'augment_change(change)' = '''
+		separate(" ",
+			if(divergent,
+				label("divergent", change ++ "?"),
+				change
+			),
+			working_copies,
+			if(conflict, label("conflict", "conflict"))
+		)
+	'''
+	# Technically, bookmarks and tags apply to changes too, but alas..
+	'augment_commit(commit)' = '''
+		separate(" ", commit, git_head, bookmarks, tags)
+	'''
+	'augment_description(description, first_line)' = '''
+		if(empty, label("empty", "(empty) ")) ++
+		if(description,
+			if(first_line, description.first_line(), description),
+			description_placeholder ++ if(first_line, "", "\n")
+		)
+	'''
+	'format_short_change_id(id)' = 'id.shortest()'
+	'format_short_commit_id(id)' = 'id.shortest(7)'
+	'format_short_signature(signature)' = 'label("email", signature.username())'
+	'format_timestamp(timestamp)' = 'timestamp.ago()'
+	unarchived = """
+		description\
+			.remove_prefix("(jj archive)")\
+			.remove_prefix(" ")\
+			.remove_suffix("\n")"""
+	separator = 'label("separator", " | ")'
+	oneline = '''
+		label(if(current_working_copy, "working_copy"),
+			separate(separator,
+				augment_commit(format_short_commit_id(commit_id)),
+				augment_description(description, true),
+				augment_change(format_short_change_id(change_id))
+			)
+		) ++
+		"\n"
+	'''
+
 [aliases]
 	list = ['log', '--no-graph']
 	archived = [
@@ -98,49 +142,5 @@
 		) ++
 		"\n\n" ++
 		augment_description(description, false) ++
-		"\n"
-	'''
-
-[template-aliases]
-	unarchived = """
-		description\
-			.remove_prefix("(jj archive)")\
-			.remove_prefix(" ")\
-			.remove_suffix("\n")"""
-	# Technically, conflicts apply to commits too, but alas..
-	'augment_change(change)' = '''
-		separate(" ",
-			if(divergent,
-				label("divergent", change ++ "?"),
-				change
-			),
-			working_copies,
-			if(conflict, label("conflict", "conflict"))
-		)
-	'''
-	# Technically, bookmarks and tags apply to changes too, but alas..
-	'augment_commit(commit)' = '''
-		separate(" ", commit, git_head, bookmarks, tags)
-	'''
-	'augment_description(description, first_line)' = '''
-		if(empty, label("empty", "(empty) ")) ++
-		if(description,
-			if(first_line, description.first_line(), description),
-			description_placeholder ++ if(first_line, "", "\n")
-		)
-	'''
-	'format_short_change_id(id)' = 'id.shortest()'
-	'format_short_commit_id(id)' = 'id.shortest(7)'
-	'format_short_signature(signature)' = 'label("email", signature.username())'
-	'format_timestamp(timestamp)' = 'timestamp.ago()'
-	separator = 'label("separator", " | ")'
-	oneline = '''
-		label(if(current_working_copy, "working_copy"),
-			separate(separator,
-				augment_commit(format_short_commit_id(commit_id)),
-				augment_description(description, true),
-				augment_change(format_short_change_id(change_id))
-			)
-		) ++
 		"\n"
 	'''
