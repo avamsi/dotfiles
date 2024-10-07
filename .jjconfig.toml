@@ -45,10 +45,9 @@
 			.remove_prefix("(jj archive)")\
 			.remove_prefix(" ")\
 			.remove_suffix("\n")"""
-	separator = 'label("separator", " | ")'
 	oneline = '''
 		label(if(current_working_copy, "working_copy"),
-			separate(separator,
+			separate(commit_summary_separator,
 				augment_commit(format_short_commit_id(commit_id)),
 				augment_description(description, true),
 				augment_change(format_short_change_id(change_id))
@@ -134,7 +133,7 @@
 		)
 	'''
 	show = '''
-		separate(separator,
+		separate(commit_summary_separator,
 			augment_commit(commit_id.shortest(12)),
 			author.email(),
 			committer.timestamp().ago(),
