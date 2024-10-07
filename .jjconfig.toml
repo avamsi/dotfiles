@@ -36,7 +36,15 @@
 			description_placeholder ++ if(first_line, "", "\n")
 		)
 	'''
-	'format_short_change_id(id)' = 'id.shortest()'
+	'hyperlink(url, text)' = '''
+		raw_escape_sequence("\e]8;;" ++ url ++ "\e\\") ++
+		text ++
+		raw_escape_sequence("\e]8;;\e\\")
+	'''
+	'gerrit_change_id(change_id)' = '"Id0000000" ++ change_id.normal_hex()'
+	'format_short_change_id(id)' = '''
+		hyperlink("https://gerrit/q/" ++ gerrit_change_id(id), id.shortest())
+	'''
 	'format_short_commit_id(id)' = 'id.shortest(7)'
 	'format_short_signature(signature)' = 'label("email", signature.username())'
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
@@ -44,7 +52,8 @@
 		description\
 			.remove_prefix("(jj archive)")\
 			.remove_prefix(" ")\
-			.remove_suffix("\n")"""
+			.remove_suffix("\n")
+	"""
 	oneline = '''
 		label(if(current_working_copy, "working_copy"),
 			separate(commit_summary_separator,
@@ -126,7 +135,7 @@
 			description.remove_suffix("\n"),
 			if(description.contains(change_id.normal_hex()),
 				"",
-				"\nChange-Id: Id0000000" ++ change_id.normal_hex()
+				"\nChange-Id: " ++ gerrit_change_id(change_id)
 			),
 			"\n",
 			surround("JJ: Changes:\n", "", indent("JJ: \t", diff.summary()))
