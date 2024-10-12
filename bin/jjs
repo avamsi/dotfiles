@@ -8,11 +8,6 @@ _jjs_fetch() {
 	print 'Done'
 }
 
-_jjs_push() {
-	print 'Pushing..'
-	jj bg git push --tracked
-}
-
 _jjs_rebase() {
 	jj rebasestale && {
 		jj bg hideempty
@@ -25,4 +20,9 @@ _jjs_rebase() {
 	true
 }
 
-_jjs_fetch && _jjs_push && _jjs_rebase 2>/dev/null
+_jjs_push() {
+	print 'Pushing..'
+	jj bg git push --tracked
+}
+
+_jjs_fetch && _jjs_rebase 2>/dev/null && _jjs_push
