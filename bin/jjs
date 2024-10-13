@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 #
-# Usage: jjs
+# Usage: jjs [--push]
 
 _jjs_fetch() {
 	print 'Fetching..'
@@ -8,9 +8,13 @@ _jjs_fetch() {
 	print 'Done'
 }
 
+zparseopts -F -- -push=push || exit
+
 _jjs_push() {
-	print 'Pushing..'
-	jj bg git push --tracked
+	if (( $#push )); then
+		print 'Pushing..'
+		jj bg git push --tracked
+	fi
 }
 
 _jjs_rebase() {
