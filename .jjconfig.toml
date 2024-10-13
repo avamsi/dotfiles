@@ -98,7 +98,8 @@
 	working_copy.underline = true
 
 [core]
-	# fsmonitor = 'watchman'
+	fsmonitor = 'watchman'
+	watchman.register_snapshot_trigger = true
 
 [git]
 	push = 'fork'
