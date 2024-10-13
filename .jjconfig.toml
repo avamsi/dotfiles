@@ -101,7 +101,6 @@
 	# fsmonitor = 'watchman'
 
 [git]
-	fetch = ['fork', 'origin']
 	push = 'fork'
 	push-bookmark-prefix = 'av/jj_'
 
