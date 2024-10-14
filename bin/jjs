@@ -5,7 +5,7 @@
 _jjs_fetch() {
 	print 'Fetching..'
 	jj bg git fetch --all-remotes
-	print 'Done'
+	print 'Done.'
 }
 
 zparseopts -F -- -push=push || exit
