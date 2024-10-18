@@ -5,6 +5,9 @@
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 
+[http]
+	cookiefile = ~/.gitcookies
+
 [alias]
 	am = !git add --all && git commit --amend
 	ci = !git add --all && git commit
