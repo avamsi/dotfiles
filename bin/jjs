@@ -19,7 +19,6 @@ _jjs_push() {
 
 _jjs_rebase() {
 	jj rebasestale && {
-		jj bg hideempty
 		# Update to og iff parents(@) are submitted and @ is empty.
 		# This is achieved by running `up` with a revset that expands to just og
 		# iff the above conditions are met or multiple revisions otherwise

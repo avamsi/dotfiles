@@ -84,7 +84,8 @@
 	hide = ['abandon']
 	hideempty = ['hide', 'empty() & local ~ root()']
 	rebasestale = [
-		'rebase', '--source=all:roots(localstale)', '--destination=og']
+		'rebase',
+		'--source=all:roots(localstale)', '--destination=og', '--skip-emptied']
 	reword = ['describe']
 	rollback = ['backout']
 	unarchived = [
