@@ -72,7 +72,10 @@
 		'--template=change_id ++ "\n(jj archive) " ++ unarchived',
 		'--revisions']
 	am = ['amend']
-	bg = ['--ignore-working-copy', '--no-pager']
+	bg = [
+		'--config-toml=ui.log-word-wrap=false',
+		'--ignore-working-copy',
+		'--no-pager']
 	bgc = ['bg', '--color=always']
 	bookmarks = ['list', '--template=bookmarks ++ "\n"']
 	changes = ['list', '--template=change_id.short() ++ "\n"']
