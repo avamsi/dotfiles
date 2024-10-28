@@ -112,15 +112,6 @@
 [merge-tools.difft]
 	diff-args = ['--color=always', '$left', '$right']
 
-[merge-tools.folderphile]
-	edit-args = ['--left=$left', '--right=$right']
-	merge-args = [
-		'--base=$base', '--left=$left', '--right=$right', '--output=$output']
-
-[merge-tools.folderphile3]
-	program = 'folderphile'
-	edit-args = ['--left=$left', '--right=$right', '--output=$output']
-
 [merge-tools.pycharm]
 	merge-args = ['merge', '$left', '$right', '$base', '$output']
 
