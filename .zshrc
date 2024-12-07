@@ -63,7 +63,7 @@ _fzf_complete_jj() {
 		--preview='jj bgc show --summary {1}' \
 		--preview-window="~7:wrap" \
 		-- "$@" < <(
-			jj bgc list --revisions=interesting --template=oneline
+			jj bgc list --revisions=interesting --template='oneline(self)'
 		)
 }
 

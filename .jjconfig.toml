@@ -50,31 +50,28 @@
 	'format_short_signature(signature)' = '''
 		coalesce(signature.username(), email_placeholder)'''
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
-	oneline = '''
+	'oneline(commit)' = '''
 		separate(commit_summary_separator,
-			format_short_commit_id(commit_id),
+			format_short_commit_id(commit.commit_id()),
 			separate(" ",
-				if(conflict, label("conflict", "(conflict)")),
-				if(empty, label("empty", "(empty)")),
-				if(description,
-					description.first_line(),
-					label(if(empty, "empty"), description_placeholder)
+				if(commit.conflict(), label("conflict", "(conflict)")),
+				if(commit.empty(), label("empty", "(empty)")),
+				if(commit.description(),
+					commit.description().first_line(),
+					label(if(commit.empty(), "empty"), description_placeholder)
 				)
 			),
 			separate(" ",
-				if(git_head, label("git_head", "git_head()")),
-				bookmarks,
-				tags,
-				working_copies
+				if(commit.git_head(), label("git_head", "git_head()")),
+				commit.bookmarks(),
+				commit.tags(),
+				commit.working_copies()
 			),
-			format_short_change_id_with_hidden_and_divergent_info(self)
+			format_short_change_id_with_hidden_and_divergent_info(commit)
 		) ++ "\n"
 	'''
-	unarchived = """
-		description\
-			.remove_prefix("(jj archive)")\
-			.remove_prefix(" ")\
-			.remove_suffix("\n")
+	'unarchived(description)' = """
+		description.remove_prefix("(jj archive) ").remove_suffix("\n")
 	"""
 
 [aliases]
@@ -90,7 +87,7 @@
 		'util', 'exec', '--', 'sh', '-c', '''
 			m=$(
 				jj bgc list \
-					--template='"(jj archive) " ++ unarchived' \
+					--template='"(jj archive) " ++ unarchived(description)' \
 					--revisions="$*") \
 			&& jj reword --message="$m" "$*"
 		''', '']
@@ -109,7 +106,9 @@
 	rollback = ['backout']
 	unarchive = [
 		'util', 'exec', '--', 'sh', '-c', '''
-			m=$(jj bgc list --template=unarchived --revisions="$*") \
+			m=$(
+				jj bgc list \
+					--template='unarchived(description)' --revisions="$*") \
 			&& jj reword --message="$m" "$*"
 		''', '']
 	up = ['new']
