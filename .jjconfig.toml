@@ -46,7 +46,8 @@
 		hyperlink("https://gerrit/q/" ++ gerrit_change_id(id), id.shortest())
 	'''
 	'format_short_commit_id(id)' = 'id.shortest(7)'
-	'format_short_signature(signature)' = 'label("email", signature.username())'
+	'format_short_signature(signature)' = '''
+		coalesce(signature.username(), email_placeholder)'''
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
 	unarchived = """
 		description\
