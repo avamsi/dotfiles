@@ -5,8 +5,7 @@
 
 [revset-aliases]
 	archived = 'description(glob:"(jj archive)*")'
-	remote = 'ancestors(remote_bookmarks(remote=origin))'
-	local = 'all() ~ remote'
+	local = 'all() ~ ancestors(remote_bookmarks(remote=origin))'
 	'chain(revisions)' = 'ancestors(revisions) & local'
 	local_unarchived = 'local ~ archived'
 	og = 'trunk()'
