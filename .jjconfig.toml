@@ -79,17 +79,22 @@
 	"""
 
 [aliases]
-	list = ['log', '--no-graph']
-	archived = [
-		'list',
-		'--template=change_id ++ "\n(jj archive) " ++ unarchived',
-		'--revisions']
 	am = ['amend']
 	bg = [
 		'--config-toml=ui.log-word-wrap=false',
 		'--ignore-working-copy',
 		'--no-pager']
 	bgc = ['bg', '--color=always']
+	list = ['log', '--no-graph']
+	reword = ['describe']
+	archive = [
+		'util', 'exec', '--', 'sh', '-c', '''
+			m=$(
+				jj bgc list \
+					--template='"(jj archive) " ++ unarchived' \
+					--revisions="$*") \
+			&& jj reword --message="$m" "$*"
+		''', '']
 	bookmarks = ['list', '--template=bookmarks ++ "\n"']
 	changes = ['list', '--template=change_id.short() ++ "\n"']
 	commits = ['list', '--template=commit_id.short() ++ "\n"']
@@ -102,10 +107,12 @@
 	rebasestale = [
 		'rebase',
 		'--source=all:roots(localstale)', '--destination=og', '--skip-emptied']
-	reword = ['describe']
 	rollback = ['backout']
-	unarchived = [
-		'list', '--template=change_id ++ "\n" ++ unarchived', '--revisions']
+	unarchive = [
+		'util', 'exec', '--', 'sh', '-c', '''
+			m=$(jj bgc list --template=unarchived --revisions="$*") \
+			&& jj reword --message="$m" "$*"
+		''', '']
 	up = ['new']
 	whatsout = ['diff', '--summary']
 
