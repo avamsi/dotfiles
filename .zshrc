@@ -59,10 +59,11 @@ export FZF_COMPLETION_TRIGGER='`'
 
 _fzf_complete_jj() {
 	_fzf_complete \
+		--ansi \
 		--preview='jj bgc show --summary {1}' \
-		--preview-window=wrap \
+		--preview-window="~7:wrap" \
 		-- "$@" < <(
-			jj bg list --revisions=interesting --template=oneline
+			jj bgc list --revisions=interesting --template=oneline
 		)
 }
 
