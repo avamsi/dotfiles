@@ -1,0 +1,10 @@
+cursor-style = bar
+cursor-style-blink = true
+font-size = 14
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+keybind = global:super+`=toggle_quick_terminal
+// macos-option-as-alt = left
+quick-terminal-autohide = false
+quick-terminal-position = bottom
+quick-terminal-screen = mouse
