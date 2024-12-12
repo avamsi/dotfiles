@@ -27,7 +27,8 @@ autoload -Uz compinit
 compinit
 
 # https://github.com/martinvonz/jj
-(( ${+commands[jj]} )) && source <(jj util completion zsh)
+# (( ${+commands[jj]} )) && source <(jj util completion zsh)
+(( ${+commands[jj]} )) && source <(COMPLETE=zsh jj)
 
 source ~/dotfiles/zsh/aliases.zsh
 source ~/dotfiles/zsh/keys.zsh
