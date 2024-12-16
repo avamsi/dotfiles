@@ -8,6 +8,7 @@ alias ll='ls -al'
 alias ls='ls -F --color'
 alias micro='tmicro'
 alias re='grep -inrI'
+alias rm='safe-rm'
 alias sudo='sudo '
 
 cd() {
