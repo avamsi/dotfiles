@@ -13,6 +13,12 @@
 	localstale = 'local_unarchived ~ descendants(og)'
 
 [template-aliases]
+	'commit_timestamp(commit)' = '''
+		if(commit.current_working_copy() || commit.hidden(),
+			commit.committer().timestamp().ago(),
+			commit.author().timestamp().ago()
+		)
+	'''
 	'format_short_change_id(id)' = 'id.shortest()'
 	'hyperlink(url, text)' = '''
 		raw_escape_sequence("\e]8;;" ++ url ++ "\e\\") ++
@@ -49,7 +55,7 @@
 	'format_short_commit_id(id)' = 'id.shortest(7)'
 	'format_short_signature(signature)' = '''
 		coalesce(signature.email().local(), email_placeholder)'''
-	'format_timestamp(timestamp)' = 'timestamp.ago()'
+	'format_timestamp(timestamp)' = 'timestamp'
 	'oneline(commit)' = '''
 		separate(commit_summary_separator,
 			format_short_commit_id(commit.commit_id()),
