@@ -48,7 +48,7 @@
 	'''
 	'format_short_commit_id(id)' = 'id.shortest(7)'
 	'format_short_signature(signature)' = '''
-		coalesce(signature.username(), email_placeholder)'''
+		coalesce(signature.email().local(), email_placeholder)'''
 	'format_timestamp(timestamp)' = 'timestamp.ago()'
 	'oneline(commit)' = '''
 		separate(commit_summary_separator,
@@ -77,7 +77,7 @@
 [aliases]
 	am = ['amend']
 	bg = [
-		'--config-toml=ui.log-word-wrap=false',
+		'--config=ui.log-word-wrap=false',
 		'--ignore-working-copy',
 		'--no-pager']
 	bgc = ['bg', '--color=always']
@@ -95,7 +95,7 @@
 	changes = ['list', '--template=change_id.short() ++ "\n"']
 	commits = ['list', '--template=commit_id.short() ++ "\n"']
 	delta = [
-		'''--config-toml=ui.pager=[
+		'''--config=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
 		'diff', '--git']
 	hide = ['abandon']
