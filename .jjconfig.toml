@@ -81,6 +81,7 @@
 	"""
 
 [aliases]
+	ab = ['absorb']
 	am = ['amend']
 	bg = [
 		'--config=ui.log-word-wrap=false',
@@ -109,6 +110,7 @@
 	rebasestale = [
 		'rebase',
 		'--source=all:roots(localstale)', '--destination=og', '--skip-emptied']
+	revlog = ['evolog']
 	rollback = ['backout']
 	unarchive = [
 		'util', 'exec', '--', 'sh', '-c', '''
@@ -152,7 +154,7 @@
 	draft_commit_description = '''
 		separate("\n",
 			description.remove_suffix("\n"),
-			if(!description.contains(change_id.normal_hex()),
+			if(!description.contains(gerrit_change_id(change_id)),
 				"\nChange-Id: " ++ gerrit_change_id(change_id)
 			),
 			"\n",
