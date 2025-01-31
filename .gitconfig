@@ -12,5 +12,8 @@
 	am = !git add --all && git commit --amend
 	ci = !git add --all && git commit
 
+[core]
+	excludesFile = ~/dotfiles/global.gitignore
+
 [init]
 	defaultBranch = main
