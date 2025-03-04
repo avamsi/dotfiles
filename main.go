@@ -80,10 +80,10 @@ func (*dotfiles) Link(opts *linkOptions) error {
 	})
 }
 
-//go:generate go run github.com/avamsi/climate/cmd/climate --out=md.climate
-//go:embed md.climate
+//go:generate go tool cligen md.cli
+//go:embed md.cli
 var md []byte
 
 func main() {
-	os.Exit(climate.Run(climate.Struct[dotfiles](), climate.Metadata(md)))
+	climate.RunAndExit(climate.Struct[dotfiles](), climate.WithMetadata(md))
 }
