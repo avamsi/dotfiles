@@ -119,7 +119,7 @@
 		'rebase',
 		'--source=all:roots(localstale)', '--destination=og', '--skip-emptied']
 	revlog = ['evolog']
-	rollback = ['backout']
+	rollback = ['revert']
 	unarchive = [
 		'util', 'exec', '--', 'sh', '-c', '''
 			m=$(
@@ -137,7 +137,7 @@
 
 [core]
 	fsmonitor = 'watchman'
-	watchman.register_snapshot_trigger = true
+	watchman.register-snapshot-trigger = true
 
 [git]
 	push = 'fork'
