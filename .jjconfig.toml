@@ -108,12 +108,13 @@
 	hide = ['abandon']
 	hideempty = ['hide', 'empty() & local ~ root()']
 	push = [
-		'util', 'exec', '--', 'sh', '-c', '''
+		'util', 'exec', '--', 'ash', '-r @- revision', '--remote', ''' \
 			jj bookmark move \
-				--from='heads(ancestors(@-) & tracked_remote_bookmarks())' \
-				--to=@- \
-			&& jj git push --revisions=@- "$@"
-		''', '']
+				--from='heads(ancestors({{.r}}) & tracked_remote_bookmarks())' \
+				--to={{.r}} \
+			&& jj git push --revisions={{.r}} \
+				{{if len .remote}}--remote={{.remote}}{{end}}
+		''']
 	rebasestale = [
 		'rebase',
 		'--source=all:roots(localstale)', '--destination=og', '--skip-emptied']
