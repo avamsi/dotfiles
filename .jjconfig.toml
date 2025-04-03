@@ -140,6 +140,7 @@
 	watchman.register-snapshot-trigger = true
 
 [git]
+	auto-local-bookmark = true
 	push = 'fork'
 	push-bookmark-prefix = 'av/jj_'
 
