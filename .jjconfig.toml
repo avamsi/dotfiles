@@ -30,10 +30,8 @@
 		hyperlink(
 			"https://gerrit/q/" ++
 			coalesce(
-				commit.description().lines().map(|line|
-					if(line.starts_with("Change-Id: "),
-						line.remove_prefix("Change-Id: ")
-					)
+				commit.trailers().map(|trailer|
+					if(trailer.key() == "Change-Id", trailer.value())
 				).join(""),
 				gerrit_change_id(commit.change_id())
 			),
@@ -160,13 +158,4 @@
 	short-prefixes = 'interesting'
 
 [templates]
-	draft_commit_description = '''
-		separate("\n",
-			description.remove_suffix("\n"),
-			if(!description.contains(gerrit_change_id(change_id)),
-				"\nChange-Id: " ++ gerrit_change_id(change_id)
-			),
-			"\n",
-			surround("JJ: Changes:\n", "", indent("JJ: \t", diff.summary()))
-		)
-	'''
+	commit_trailers = '"Change-Id: " ++ gerrit_change_id(change_id)'
