@@ -1,4 +1,6 @@
 # https://github.com/martinvonz/jj/blob/main/docs/config.md
+'$schema' = 'https://jj-vcs.github.io/jj/latest/config-schema.json'
+
 [user]
 	name = 'Vamsi Avula'
 	email = 'avamsi07@gmail.com'
@@ -140,7 +142,6 @@
 [git]
 	auto-local-bookmark = true
 	push = 'fork'
-	push-bookmark-prefix = 'av/jj_'
 
 [merge-tools.difft]
 	diff-args = ['--color=always', '$left', '$right']
@@ -159,3 +160,4 @@
 
 [templates]
 	commit_trailers = '"Change-Id: " ++ gerrit_change_id(change_id)'
+	git_push_bookmark = "'av/jj_' ++ change_id.short()"
