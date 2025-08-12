@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git diff:*)",
+      "Bash(go test:*)",
+      "Edit",
+      "WebFetch"
+    ]
+  }
+}
