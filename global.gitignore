@@ -1,3 +1,6 @@
 # git config --global core.excludesFile '~/dotfiles/global.gitignore'
 
+__pycache__/
+.idea/
+
 .DS_Store
