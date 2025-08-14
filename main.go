@@ -11,6 +11,7 @@ import (
 	_ "embed"
 
 	"github.com/avamsi/climate"
+	ignore "github.com/sabhiram/go-gitignore"
 )
 
 type dotfiles struct{}
@@ -32,11 +33,22 @@ type linkOptions struct {
 
 // Link symlinks all dotfiles to the user's home directory.
 func (*dotfiles) Link(opts *linkOptions) error {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		return err
+	home, err1 := os.UserHomeDir()
+	if err1 != nil {
+		return err1
 	}
-	df := filepath.Join(home, "dotfiles")
+	var (
+		df       = filepath.Join(home, "dotfiles")
+		gif      = filepath.Join(df, ".gitignore")
+		gi, err2 = ignore.CompileIgnoreFile(gif)
+	)
+	if err2 != nil {
+		if errors.Is(err2, fs.ErrNotExist) {
+			gi = ignore.CompileIgnoreLines()
+		} else {
+			return err2
+		}
+	}
 	return filepath.WalkDir(df, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -58,12 +70,11 @@ func (*dotfiles) Link(opts *linkOptions) error {
 			}
 			return nil
 		}
-		// Skip dotfiles that are not related to actual dotfiles.
-		if d.Name() == ".gitmodules" {
+		if d.Name() == ".gitmodules" || d.Name() == ".gitignore" {
 			return nil
 		}
-		// Manually skip .gitignore and its contents.
-		if d.Name() == ".gitignore" || strings.HasSuffix(d.Name(), ".zsh.zwc") {
+		if skip, why := gi.MatchesPathHow(rel); skip {
+			fmt.Printf("Skipped %s;\n\tmatched %s#L%d: %s\n", path, gif, why.LineNo, why.Line)
 			return nil
 		}
 		symlink := filepath.Join(home, rel)
