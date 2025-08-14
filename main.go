@@ -45,37 +45,39 @@ func (*dotfiles) Link(opts *linkOptions) error {
 		if err != nil {
 			return err
 		}
-		if d.IsDir() {
-			// We only want to symlink "dotfiles".
-			if !strings.HasPrefix(rel, ".") {
+		// We only want to symlink "dotfiles".
+		if !strings.HasPrefix(rel, ".") {
+			if d.IsDir() {
 				return filepath.SkipDir
 			}
+			return nil
+		}
+		if d.IsDir() {
 			if d.Name() == ".git" || d.Name() == ".jj" {
 				return filepath.SkipDir
 			}
-			// We only want to symlink "dotfiles".
-		} else if strings.HasPrefix(rel, ".") {
-			// Skip dotfiles that are not related to actual dotfiles.
-			if d.Name() == ".gitmodules" {
-				return nil
-			}
-			// Manually skip .gitignore and its contents.
-			if d.Name() == ".gitignore" || strings.HasSuffix(d.Name(), ".zsh.zwc") {
-				return nil
-			}
-			symlink := filepath.Join(home, rel)
-			if err := os.MkdirAll(filepath.Dir(symlink), 0755); err != nil {
-				return err
-			}
-			if err := link(path, symlink, opts.Force); err != nil {
-				if errors.Is(err, fs.ErrExist) {
-					fmt.Printf("Skipped %s;\n\t%v\n", path, err)
-					return nil
-				}
-				return err
-			}
-			fmt.Printf("Symlinked %s to %s\n", path, symlink)
+			return nil
 		}
+		// Skip dotfiles that are not related to actual dotfiles.
+		if d.Name() == ".gitmodules" {
+			return nil
+		}
+		// Manually skip .gitignore and its contents.
+		if d.Name() == ".gitignore" || strings.HasSuffix(d.Name(), ".zsh.zwc") {
+			return nil
+		}
+		symlink := filepath.Join(home, rel)
+		if err := os.MkdirAll(filepath.Dir(symlink), 0755); err != nil {
+			return err
+		}
+		if err := link(path, symlink, opts.Force); err != nil {
+			if errors.Is(err, fs.ErrExist) {
+				fmt.Printf("Skipped %s;\n\t%v\n", path, err)
+				return nil
+			}
+			return err
+		}
+		fmt.Printf("Symlinked %s to %s\n", path, symlink)
 		return nil
 	})
 }
