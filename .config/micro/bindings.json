@@ -1,5 +1,4 @@
 {
     "Alt-/": "lua:comment.comment",
     "Ctrl-d": "lua:initlua.selectword",
-    "CtrlUnderscore": "lua:comment.comment"
 }
