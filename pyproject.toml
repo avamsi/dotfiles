@@ -1,0 +1,26 @@
+[project]
+name = "dotfiles"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "rich>=14.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "poethepoet>=0.37.0",
+    "pyrefly>=0.29.2",
+    "ruff>=0.12.10",
+]
+
+[project.scripts]
+dotfiles = "dotfiles:main"
+
+[tool.poe.tasks]
+format = "ruff format"
+lint = "ruff check --fix"
+typecheck = "pyrefly check --remove-unused-ignores ."
+fix = ["format", "lint", "typecheck"]
+
+[tool.uv]
+package = true
