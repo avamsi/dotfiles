@@ -7,7 +7,7 @@ bindkey '^[[1;5C' forward-word  # ctrl-right
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
-bindkey '^X^E' edit-command-line  # ctrl-x, ctrl-e
+bindkey '^X^E' edit-command-line
 
 up-line-or-local-history() {
 	zle set-local-history 1
