@@ -1,8 +1,24 @@
 {
-  "$schema":  "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
-  "packages": [],
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "packages": [
+    // keep-sorted start
+    "antigen@latest",
+    "bat@latest",
+    "delta@latest",
+    "fzf@latest",
+    "gh@latest",
+    "go@latest",
+    "jujutsu@latest",
+    "keep-sorted@latest",
+    "micro@latest",
+    "mosh@latest",
+    "uv@latest",
+    "viddy@latest",
+    "zsh@latest",
+    // keep-sorted end
+  ],
   "shell": {
     "init_hook": [],
-    "scripts":   {}
-  }
+    "scripts":   {},
+  },
 }
