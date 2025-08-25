@@ -1,3 +1,7 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(devbox global shellenv)"
+# export HOMEBREW_PREFIX="$DEVBOX_PACKAGES_DIR"
+
 # https://github.com/romkatv/powerlevel10k#how-do-i-initialize-direnv-when-using-instant-prompt
 (( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
 
@@ -10,6 +14,7 @@ fi
 
 (( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
 
+export COLORTERM='truecolor'
 export DISPLAY=':0'
 export EDITOR='tmicro'
 export TERM='xterm-256color'
