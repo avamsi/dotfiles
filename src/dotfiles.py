@@ -57,9 +57,10 @@ def walk(path: str) -> typing.Iterator[str]:
             yield relpath
 
 
-def unsafe_link(src: str, dst: str, force=False):
+def unsafe_link(src: str, dst: str, force=True):
     if force:
         os.remove(dst)
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
     os.symlink(src, dst)
     rich.print("Overwrote" if force else "Created", f"{dst} as a symlink to {src}")
 
@@ -74,7 +75,7 @@ def readlines(path: str) -> list[str]:
 
 def link(src: str, dst: str):
     try:
-        unsafe_link(src, dst)
+        unsafe_link(src, dst, force=False)
         return
     except FileExistsError:
         pass
@@ -88,7 +89,7 @@ def link(src: str, dst: str):
         difflib.unified_diff(readlines(dst), readlines(src), dst, src, lineterm="")
     )
     if not diff:
-        unsafe_link(src, dst, force=True)
+        unsafe_link(src, dst)
         return
     rich.print()
     rich.print(diff)
@@ -103,7 +104,7 @@ def link(src: str, dst: str):
         case "r":
             link(src, dst)
         case "o":
-            unsafe_link(src, dst, force=True)
+            unsafe_link(src, dst)
 
 
 def setup(repo: str):
