@@ -6,9 +6,8 @@ import os.path
 import typing
 
 import rich
-import rich.prompt
 import rich.columns
-
+import rich.prompt
 
 HOME_DIR = os.path.expanduser("~")
 DOTFILES_DIR = os.path.join(HOME_DIR, "dotfiles")

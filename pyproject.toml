@@ -22,5 +22,8 @@ lint = "ruff check --fix"
 typecheck = "pyrefly check --remove-unused-ignores ."
 fix = ["format", "lint", "typecheck"]
 
+[tool.ruff.lint]
+extend-select = ["I"]
+
 [tool.uv]
 package = true
