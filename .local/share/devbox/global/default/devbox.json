@@ -4,6 +4,7 @@
     // keep-sorted start
     "antigen@latest",
     "bat@latest",
+    "claude-code@latest",
     "delta@latest",
     "fzf@latest",
     "gh@latest",
@@ -12,6 +13,7 @@
     "keep-sorted@latest",
     "micro@latest",
     "mosh@latest",
+    "mutagen@latest",
     "uv@latest",
     "viddy@latest",
     "zsh@latest",

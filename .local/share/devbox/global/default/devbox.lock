@@ -97,6 +97,54 @@
         }
       }
     },
+    "claude-code@latest": {
+      "last_modified": "2025-08-09T12:28:43Z",
+      "resolved": "github:NixOS/nixpkgs/f86999f8bfef9ff57f7f03c1c5deedc2784fc666#claude-code",
+      "source": "devbox-search",
+      "version": "1.0.72",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/hbcrz6drip9lds3wv31hn4w94xkq3r0h-claude-code-1.0.72",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/hbcrz6drip9lds3wv31hn4w94xkq3r0h-claude-code-1.0.72"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/v4jmh6a82gyrp74i8js3yw2g6bsz25jp-claude-code-1.0.72",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/v4jmh6a82gyrp74i8js3yw2g6bsz25jp-claude-code-1.0.72"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/cdsqa260ag7aml4a80ikr6r4a8cc85lx-claude-code-1.0.72",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/cdsqa260ag7aml4a80ikr6r4a8cc85lx-claude-code-1.0.72"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/cg2dz65fgxzz5dx8jsxyabi6i8zw9bkc-claude-code-1.0.72",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/cg2dz65fgxzz5dx8jsxyabi6i8zw9bkc-claude-code-1.0.72"
+        }
+      }
+    },
     "delta@latest": {
       "last_modified": "2025-07-28T17:09:23Z",
       "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#delta",
@@ -522,6 +570,54 @@
             }
           ],
           "store_path": "/nix/store/x9ax4a2137ili7ff2zs43z79gxxb4pca-mosh-1.4.0"
+        }
+      }
+    },
+    "mutagen@latest": {
+      "last_modified": "2025-07-28T17:09:23Z",
+      "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#mutagen",
+      "source": "devbox-search",
+      "version": "0.18.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/snpwbivhh0160s1lha64ipzfly7ml4z3-mutagen-0.18.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/snpwbivhh0160s1lha64ipzfly7ml4z3-mutagen-0.18.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3v118hz11ksb9v3kadzyd9sz896yly79-mutagen-0.18.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3v118hz11ksb9v3kadzyd9sz896yly79-mutagen-0.18.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/762lz1g60vfvi8fj1ssfm239dz8xrk99-mutagen-0.18.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/762lz1g60vfvi8fj1ssfm239dz8xrk99-mutagen-0.18.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/sdis1vgnv378bv3qvi1s02s6qi8c0zsx-mutagen-0.18.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/sdis1vgnv378bv3qvi1s02s6qi8c0zsx-mutagen-0.18.0"
         }
       }
     },
