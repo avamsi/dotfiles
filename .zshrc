@@ -14,6 +14,10 @@ fi
 
 (( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
 
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=1000000
+SAVEHIST=$HISTSIZE
+
 export COLORTERM='truecolor'
 export DISPLAY=':0'
 export EDITOR='tmicro'
@@ -24,16 +28,8 @@ export PATH="${GOPATH:-$HOME/go}/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=1000000
-SAVEHIST=$HISTSIZE
-
 autoload -Uz compinit
 compinit
-
-# https://github.com/martinvonz/jj
-# (( ${+commands[jj]} )) && source <(jj util completion zsh)
-(( ${+commands[jj]} )) && source <(COMPLETE=zsh jj)
 
 source ~/dotfiles/zsh/aliases.zsh
 source ~/dotfiles/zsh/fzf.zsh
@@ -44,6 +40,10 @@ source ~/dotfiles/zsh/plugins.zsh
 # https://github.com/avamsi/axl
 (( ${+commands[axl]} )) && source <(axl hooks zsh)
 # export AXL_NOTIFY=...
+
+# https://github.com/martinvonz/jj
+# (( ${+commands[jj]} )) && source <(jj util completion zsh)
+(( ${+commands[jj]} )) && source <(COMPLETE=zsh jj)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
