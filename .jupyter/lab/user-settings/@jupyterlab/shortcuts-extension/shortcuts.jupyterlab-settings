@@ -1,0 +1,16 @@
+{
+    "shortcuts": [
+        {
+            "command": "notebook:run-all-below",
+            "keys": [],
+            "macKeys": ["Cmd Shift Enter"],
+            "selector": ".jp-Notebook.jp-mod-editMode"
+        },
+        {
+            "command": "jupyterlab_code_formatter:format_all",
+            "keys": [],
+            "macKeys": ["Cmd Shift F"],
+            "selector": ".jp-Notebook.jp-mod-editMode"
+        }
+    ]
+}
