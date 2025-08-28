@@ -12,5 +12,18 @@
       "Write"
     ],
     "defaultMode": "acceptEdits"
-  }
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "say -v Bells Done!"
+          }
+        ]
+      }
+    ]
+  },
+  "model": "opusplan"
 }
