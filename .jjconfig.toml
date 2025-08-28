@@ -129,6 +129,7 @@
 		''', '']
 	up = ['new']
 	whatsout = ['diff', '--summary']
+	ws = ['workspace']
 
 [colors]
 	'description placeholder' = 'red'
@@ -158,6 +159,9 @@
 
 [revsets]
 	short-prefixes = 'interesting'
+
+[snapshot]
+	auto-update-stale = true
 
 [templates]
 	commit_trailers = '"Change-Id: " ++ gerrit_change_id(change_id)'
