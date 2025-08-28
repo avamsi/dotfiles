@@ -1,10 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git diff:*)",
+      "Bash(cargo test:*)",
       "Bash(go test:*)",
+      "Bash(uv run pytest:*)",
       "Edit",
-      "WebFetch"
-    ]
+      "MultiEdit",
+      "NotebookEdit",
+      "WebFetch",
+      "WebSearch",
+      "Write"
+    ],
+    "defaultMode": "acceptEdits"
   }
 }
