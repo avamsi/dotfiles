@@ -105,8 +105,7 @@
 		'''--config=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
 		'diff', '--git']
-	hide = ['abandon']
-	hideempty = ['hide', 'empty() & local ~ root()']
+	hide = ['abandon', 'empty() & mutable()']
 	push = [
 		'util', 'exec', '--', 'ash', '-r @- revision', '--remote', ''' \
 			jj bookmark move \
