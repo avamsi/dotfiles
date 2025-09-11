@@ -18,3 +18,5 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen apply
 
 unset 'AUTOPAIR_PAIRS[`]'
+
+source "$HOMEBREW_PREFIX/share/zsh-abbr/zsh-abbr.zsh"
