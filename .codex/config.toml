@@ -2,7 +2,9 @@
 # 	type = "sse"
 # 	url = "https://mcp.atlassian.com/v1/sse"
 
+model = "gpt-5-codex"
 model_reasoning_effort = "high"
 notify = ["say", "-v", "Bells", "Done!"]
+# preferred_auth_method = "apikey"
 
 projects = {}
