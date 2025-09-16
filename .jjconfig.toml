@@ -165,3 +165,19 @@
 [templates]
 	commit_trailers = '"Change-Id: " ++ gerrit_change_id(change_id)'
 	git_push_bookmark = "'av/jj_' ++ change_id.short()"
+
+[x.hooks]
+	post-commit = [
+		'sh', '-c', '''
+		if [ -f "$(jj root)/.pre-commit-config.yaml" ] \
+		&& [ "$(jj show --template='self.empty()' --no-patch)" = "true" ]; then
+			uvx prek --last-commit
+		fi
+		''']
+	post-squash = [
+		'sh', '-c', '''
+		if [ -f "$(jj root)/.pre-commit-config.yaml" ] \
+		&& [ "$(jj show --template='self.empty()' --no-patch)" = "true" ]; then
+			uvx prek --last-commit
+		fi
+		''']
