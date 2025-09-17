@@ -11,7 +11,7 @@
       "WebSearch",
       "Write"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "plan"
   },
   "hooks": {
     "Notification": [
@@ -25,5 +25,6 @@
       }
     ]
   },
-  "model": "opusplan"
+  "model": "opusplan",
+  "alwaysThinkingEnabled": true
 }
