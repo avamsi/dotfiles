@@ -145,6 +145,54 @@
         }
       }
     },
+    "codex@latest": {
+      "last_modified": "2025-08-11T07:05:29Z",
+      "resolved": "github:NixOS/nixpkgs/9585e9192aadc13ec3e49f33f8333bd3cda524df#codex",
+      "source": "devbox-search",
+      "version": "0.20.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/dpdg4cwwz6jpjapc2a268vyq5jmgm39f-codex-0.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/dpdg4cwwz6jpjapc2a268vyq5jmgm39f-codex-0.20.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9qkkk466pw20bbk345idgpp0w1s47w79-codex-0.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9qkkk466pw20bbk345idgpp0w1s47w79-codex-0.20.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/yh7cpl65qgxn9qwa5d6k6bgmngw6awfs-codex-0.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/yh7cpl65qgxn9qwa5d6k6bgmngw6awfs-codex-0.20.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/lvk1x0vzg7497qxdk3ih8kqkg4xszhhj-codex-0.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/lvk1x0vzg7497qxdk3ih8kqkg4xszhhj-codex-0.20.0"
+        }
+      }
+    },
     "delta@latest": {
       "last_modified": "2025-07-28T17:09:23Z",
       "resolved": "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b#delta",
@@ -310,8 +358,8 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2025-08-21T00:30:53Z",
-      "resolved": "github:NixOS/nixpkgs/596312aae91421d6923f18cecce934a7d3bfd6b8?lastModified=1755736253&narHash=sha256-jlIQRypNhB1PcB1BE%2BexpE4xZeJxzoAGr1iUbHQta8s%3D"
+      "last_modified": "2025-09-16T13:27:06Z",
+      "resolved": "github:NixOS/nixpkgs/08b8f92ac6354983f5382124fef6006cade4a1c1?lastModified=1758029226&narHash=sha256-TjqVmbpoCqWywY9xIZLTf6ANFvDCXdctCjoYuYPYdMI%3D"
     },
     "go@latest": {
       "last_modified": "2025-07-28T17:09:23Z",

@@ -5,6 +5,7 @@
     "antigen@latest",
     "bat@latest",
     "claude-code@latest",
+    "codex@latest",
     "delta@latest",
     "fzf@latest",
     "gh@latest",
