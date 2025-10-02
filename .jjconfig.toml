@@ -89,14 +89,13 @@
 		'--no-pager']
 	bgc = ['bg', '--color=always']
 	list = ['log', '--no-graph']
-	reword = ['describe']
 	archive = [
 		'util', 'exec', '--', 'sh', '-c', '''
 			m=$(
 				jj bgc list \
 					--template='"(jj archive) " ++ unarchived(description)' \
 					--revisions="$*") \
-			&& jj reword --message="$m" "$*"
+			&& jj describe --message="$m" "$*"
 		''', '']
 	bookmarks = ['list', '--template=bookmarks ++ "\n"']
 	changes = ['list', '--template=change_id.short() ++ "\n"']
@@ -124,7 +123,7 @@
 			m=$(
 				jj bgc list \
 					--template='unarchived(description)' --revisions="$*") \
-			&& jj reword --message="$m" "$*"
+			&& jj describe --message="$m" "$*"
 		''', '']
 	up = ['new']
 	whatsout = ['diff', '--summary']
