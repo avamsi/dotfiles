@@ -6,5 +6,4 @@ model = "gpt-5"
 model_reasoning_effort = "high"
 notify = ["say", "-v", "Bells", "Done!"]
 preferred_auth_method = "chatgpt"
-
-projects = {}
+tools.web_search = true
