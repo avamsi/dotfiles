@@ -18,6 +18,7 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
 
+export CLAUDE_CODE_SUBAGENT_MODEL='claude-opus-4-5'
 export COLORTERM='truecolor'
 export DISPLAY=':0'
 export EDITOR='tmicro'
