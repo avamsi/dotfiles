@@ -3,6 +3,7 @@
     "allow": [
       "Bash(cargo test:*)",
       "Bash(go test:*)",
+      "Bash(jj:*)",
       "Bash(uv run pytest:*)",
       "Edit",
       "MultiEdit",
