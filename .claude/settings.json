@@ -14,6 +14,7 @@
     ],
     "defaultMode": "plan"
   },
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -26,6 +27,5 @@
       }
     ]
   },
-  "model": "opusplan",
   "alwaysThinkingEnabled": true
 }
