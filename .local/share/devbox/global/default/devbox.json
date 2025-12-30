@@ -18,6 +18,7 @@
     "uv@latest",
     "viddy@latest",
     "zsh@latest",
+    "pdftk@latest",
     // keep-sorted end
   ],
   "shell": {
