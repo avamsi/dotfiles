@@ -27,5 +27,8 @@
       }
     ]
   },
+  "sandbox": {
+    "enabled": true
+  },
   "alwaysThinkingEnabled": true
 }
