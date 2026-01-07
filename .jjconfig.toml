@@ -8,7 +8,6 @@
 [revset-aliases]
 	archived = 'description(glob:"(jj archive)*")'
 	local = 'all() ~ ancestors(remote_bookmarks(remote=origin))'
-	'chain(revisions)' = 'ancestors(revisions) & local'
 	local_unarchived = 'local ~ archived'
 	og = 'trunk()'
 	interesting = 'og | parents(local_unarchived) | local_unarchived'
@@ -97,9 +96,6 @@
 					--revisions="$*") \
 			&& jj describe --message="$m" "$*"
 		''', '']
-	bookmarks = ['list', '--template=bookmarks ++ "\n"']
-	changes = ['list', '--template=change_id.short() ++ "\n"']
-	commits = ['list', '--template=commit_id.short() ++ "\n"']
 	delta = [
 		'''--config=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
@@ -116,8 +112,6 @@
 	rebasestale = [
 		'rebase',
 		'--source=roots(localstale)', '--destination=og', '--skip-emptied']
-	revlog = ['evolog']
-	rollback = ['revert']
 	unarchive = [
 		'util', 'exec', '--', 'sh', '-c', '''
 			m=$(
@@ -126,7 +120,6 @@
 			&& jj describe --message="$m" "$*"
 		''', '']
 	up = ['new']
-	whatsout = ['diff', '--summary']
 	ws = ['workspace']
 
 [colors]
@@ -139,12 +132,8 @@
 	watchman.register-snapshot-trigger = true
 
 [git]
-	auto-local-bookmark = true
 	colocate = true
 	push = 'fork'
-
-[merge-tools.difft]
-	diff-args = ['--color=always', '$left', '$right']
 
 [merge-tools.pycharm]
 	merge-args = ['merge', '$left', '$right', '$base', '$output']
