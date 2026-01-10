@@ -1,0 +1,5 @@
+- Ask questions
+- Develop iteratively
+- Keep things simple
+- Prefer jj (over git)
+- Use uv (for Python projects / scripts)
