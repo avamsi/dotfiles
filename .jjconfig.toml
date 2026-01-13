@@ -6,7 +6,7 @@
 	email = 'avamsi07@gmail.com'
 
 [revset-aliases]
-	archived = 'description(glob:"(jj archive)*")'
+	archived = 'description("(jj archive)*")'
 	local = 'all() ~ ancestors(remote_bookmarks(remote=origin))'
 	local_unarchived = 'local ~ archived'
 	og = 'trunk()'
@@ -21,11 +21,6 @@
 		)
 	'''
 	'format_short_change_id(id)' = 'id.shortest()'
-	'hyperlink(url, text)' = '''
-		raw_escape_sequence("\e]8;;" ++ url ++ "\e\\") ++
-		text ++
-		raw_escape_sequence("\e]8;;\e\\")
-	'''
 	'gerrit_change_id(change_id)' = '"Id0000000" ++ change_id.normal_hex()'
 	'format_short_change_id_with_gerrit_hyperlink(commit)' = '''
 		hyperlink(
@@ -67,7 +62,6 @@
 				)
 			),
 			separate(" ",
-				if(commit.git_head(), label("git_head", "git_head()")),
 				commit.bookmarks(),
 				commit.tags(),
 				commit.working_copies()
