@@ -1,0 +1,12 @@
+{
+  "general": {
+    "previewFeatures": true
+  },
+  "security": {
+    "auth": { "selectedType": "gemini-api-key" }
+  },
+  "tools": {
+    "autoAccept": true,
+    "sandbox": "sandbox-exec"
+  }
+}
