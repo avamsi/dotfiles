@@ -125,6 +125,7 @@
 	merge-args = ['merge', '$left', '$right', '$base', '$output']
 
 [ui]
+	conflict-marker-style = 'git'
 	diff-editor = ':builtin'
 	diff-instructions = false
 	log-word-wrap = true
