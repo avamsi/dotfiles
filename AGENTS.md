@@ -1,5 +1,7 @@
 - Ask questions
+- Consider alternatives (and trade-offs)
 - Develop iteratively
 - Keep things simple
 - Prefer jj (over git)
+- Use subagents
 - Use uv (for Python projects / scripts)
