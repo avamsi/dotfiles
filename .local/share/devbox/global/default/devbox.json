@@ -15,10 +15,10 @@
     "micro@latest",
     "mosh@latest",
     "mutagen@latest",
+    "pdftk@latest",
     "uv@latest",
     "viddy@latest",
     "zsh@latest",
-    "pdftk@latest",
     // keep-sorted end
   ],
   "shell": {
