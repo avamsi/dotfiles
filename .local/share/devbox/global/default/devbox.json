@@ -18,6 +18,7 @@
     "pdftk@latest",
     "uv@latest",
     "viddy@latest",
+    "zsh-abbr@latest",
     "zsh@latest",
     // keep-sorted end
   ],
