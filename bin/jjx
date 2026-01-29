@@ -2,15 +2,7 @@
 #
 # Usage: jjx
 
-print '@ Working copy changes:'
 # We intentionally don't use bg(c) here to let jj automatically commit
 # changes to the working copy (so it's not stale on output).
-jj --color=always diff --revision=@ --summary | indent
-conflicts=$(jj bgc resolve --list 2>/dev/null) && {
-	print '\n\e[31mx Conflicts:\e[0m'
-	print "$conflicts" | indent
-}
-print '\n| Parent commit changes:'
-jj bgc diff --revision='parents(@)' --summary | indent
-print
+jj --color=always show --template=status --no-patch
 jj bgc log --revisions=interesting
