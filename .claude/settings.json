@@ -10,7 +10,8 @@
       "NotebookEdit",
       "WebFetch",
       "WebSearch",
-      "Write"
+      "Write",
+      "mcp__chrome-devtools"
     ],
     "defaultMode": "plan"
   },
