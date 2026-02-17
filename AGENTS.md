@@ -3,5 +3,6 @@
 - Develop iteratively
 - Keep things simple
 - Prefer jj (over git)
+  - Use `jj delta` over `jj diff`
 - Use subagents
 - Use uv (for Python projects / scripts)
