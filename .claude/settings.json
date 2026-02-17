@@ -37,5 +37,6 @@
     "enabled": true
   },
   "alwaysThinkingEnabled": true,
-  "fastMode": true
+  "fastMode": true,
+  "skipDangerousModePermissionPrompt": true
 }
