@@ -12,8 +12,7 @@
       "WebSearch",
       "Write",
       "mcp__chrome-devtools"
-    ],
-    "defaultMode": "plan"
+    ]
   },
   "model": "opus[1m]",
   "hooks": {
