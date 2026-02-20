@@ -1,4 +1,6 @@
 - Ask questions
+  - Search, and research
+  - Show your work
 - Consider alternatives (and trade-offs)
 - Develop iteratively
 - Keep things simple
