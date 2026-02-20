@@ -6,10 +6,20 @@
     "name": "gemini-3.1-pro-preview"
   },
   "security": {
-    "auth": { "selectedType": "gemini-api-key" }
+    "auth": {
+      "selectedType": "gemini-api-key"
+    }
   },
   "tools": {
     "autoAccept": true,
     "sandbox": "sandbox-exec"
+  },
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ]
+    }
   }
 }
