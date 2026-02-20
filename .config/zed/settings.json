@@ -1,0 +1,22 @@
+// https://zed.dev/docs/configuring-zed
+{
+  "agent": {
+    "default_model": {
+      "model": "gemini-3.1-pro-preview",
+      "provider": "copilot_chat",
+    },
+  },
+  "buffer_font_size": 14,
+  "languages": {
+    "JSON": { "format_on_save": "off" },
+    "Python": {
+      "formatter": [{ "language_server": { "name": "ruff" } }],
+      "language_servers": ["pyright", "ruff"],
+    },
+    "TOML": { "format_on_save": "off" },
+  },
+  "telemetry": { "diagnostics": false, "metrics": false },
+  "terminal": { "font_family": "MesloLGS NF" },
+  "theme": { "dark": "Ayu Mirage", "light": "Ayu Mirage" },
+  "wrap_guides": [80],
+}
