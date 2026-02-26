@@ -7,11 +7,10 @@
 
 [revset-aliases]
 	archived = 'description("(jj archive)*")'
-	local = 'all() ~ ancestors(remote_bookmarks(remote=origin))'
-	local_unarchived = 'local ~ archived'
+	local = 'mutable() ~ archived'
 	og = 'trunk()'
-	interesting = 'og | parents(local_unarchived) | local_unarchived'
-	localstale = 'local_unarchived ~ descendants(og)'
+	interesting = 'og | ancestors(local | working_copies(), 2)'
+	stale = 'local ~ descendants(og)'
 
 [template-aliases]
 	'commit_timestamp(commit)' = '''
@@ -109,8 +108,7 @@
 				{{if len .remote}}--remote={{.remote}}{{end}}
 		''']
 	rebasestale = [
-		'rebase',
-		'--source=roots(localstale)', '--destination=og', '--skip-emptied']
+		'rebase', '--source=roots(stale)', '--destination=og', '--skip-emptied']
 	unarchive = [
 		'util', 'exec', '--', 'sh', '-c', '''
 			m=$(
