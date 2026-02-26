@@ -107,8 +107,14 @@
 			&& jj git push --revisions={{.r}} \
 				{{if len .remote}}--remote={{.remote}}{{end}}
 		''']
-	rebasestale = [
+	retrunk = [
 		'rebase', '--source=roots(stale)', '--destination=og', '--skip-emptied']
+	sync = [
+		'util', 'exec', '--', 'sh', '-c', '''
+			set -ex
+			jj bg git fetch --all-remotes
+			jj retrunk
+		''', '']
 	unarchive = [
 		'util', 'exec', '--', 'sh', '-c', '''
 			m=$(
