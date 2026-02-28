@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-#
-# Usage: jjx
-
-# We intentionally don't use bg(c) here to let jj automatically commit
-# changes to the working copy (so it's not stale on output).
-jj --color=always show --template=status --no-patch
-jj bgc log --revisions=interesting

@@ -19,6 +19,19 @@
 			commit.author().timestamp().ago()
 		)
 	'''
+	dashboard = '''
+		"@ Working copy changes:\n" ++
+		indent("    ", diff.summary()) ++
+		if(conflict,
+			"\nx Conflicts:\n" ++
+			indent("    ", conflicted_files.map(|x|
+				label("conflict", "x " ++ x.path())).join("\n")) ++
+			"\n"
+		) ++
+		"\n| Parent commit changes:\n" ++
+		indent("    ", parents.map(|x| x.diff().summary()).join("")) ++
+		"\n"
+	'''
 	'format_short_change_id(id)' = 'id.shortest()'
 	'gerrit_change_id(change_id)' = '"Id0000000" ++ change_id.normal_hex()'
 	'format_short_change_id_with_gerrit_hyperlink(commit)' = '''
@@ -60,19 +73,6 @@
 			format_short_change_id_with_change_offset(commit)
 		) ++ "\n"
 	'''
-	status = '''
-		"@ Working copy changes:\n" ++
-		indent("    ", diff.summary()) ++
-		if(conflict,
-			"\nx Conflicts:\n" ++
-			indent("    ", conflicted_files.map(|x|
-				label("conflict", "x " ++ x.path())).join("\n")) ++
-			"\n"
-		) ++
-		"\n| Parent commit changes:\n" ++
-		indent("    ", parents.map(|x| x.diff().summary()).join("")) ++
-		"\n"
-	'''
 	'unarchived(description)' = """
 		description.remove_prefix("(jj archive) ").remove_suffix("\n")
 	"""
@@ -95,6 +95,11 @@
 			&& jj describe --message="$m" {{.r}}
 		''']
 	bgc = ['bg', '--color=always']
+	dash = [
+		'ash', '--quiet', '''
+			jj --color=always show --template=dashboard --no-patch
+			jj bgc log --revisions=interesting
+		''']
 	delta = [
 		'''--config=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
@@ -129,7 +134,7 @@
 	up = ['new']
 	watch = [
 		'ash', '--watcher "viddy --skip-empty-diffs --unfold"',
-			'{{.watcher}} "jjx 2>&1"']
+			'{{.watcher}} "jj dash 2>&1"']
 	ws = ['workspace']
 
 [colors]
@@ -150,6 +155,7 @@
 
 [ui]
 	conflict-marker-style = 'git'
+	default-command = 'dash'
 	diff-editor = ':builtin'
 	diff-instructions = false
 	log-word-wrap = true
