@@ -4,7 +4,6 @@ alias claude='claude --allow-dangerously-skip-permissions'
 # https://github.com/wincent/clipper
 # alias clip='tee >(nc -N localhost 8377)'
 alias grep='grep --color'
-alias jjw='viddy --skip-empty-diffs --unfold "jjx 2>&1"'
 alias ll='ls -al'
 alias ls='ls -F --color'
 alias micro='tmicro'

@@ -127,6 +127,9 @@
 			&& jj describe --message="$m" {{.r}}
 		''']
 	up = ['new']
+	watch = [
+		'ash', '--watcher "viddy --skip-empty-diffs --unfold"',
+			'{{.watcher}} "jjx 2>&1"']
 	ws = ['workspace']
 
 [colors]
