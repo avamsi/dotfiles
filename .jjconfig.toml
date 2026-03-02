@@ -85,24 +85,25 @@
 		'--config=ui.log-word-wrap=false',
 		'--ignore-working-copy',
 		'--no-pager']
-	bgc = ['bg', '--color=always']
-	list = ['log', '--no-graph']
 	archive = [
-		'util', 'exec', '--', 'sh', '-c', '''
+		'ash', '-r @ revision', ''' \
 			m=$(
-				jj bgc list \
+				jj bg show \
 					--template='"(jj archive) " ++ unarchived(description)' \
-					--revisions="$*") \
-			&& jj describe --message="$m" "$*"
-		''', '']
+					--no-patch \
+					{{.r}}) \
+			&& jj describe --message="$m" {{.r}}
+		''']
+	bgc = ['bg', '--color=always']
 	delta = [
 		'''--config=ui.pager=[
 			"delta", "--line-numbers", "--navigate", "--side-by-side"]''',
 		'diff', '--git']
 	hide = ['abandon', 'empty() & mutable()']
+	list = ['log', '--no-graph']
 	push = [
 		'ash', '-r @- revision', '--remote', ''' \
-			jj bookmark move \
+			jj bg bookmark move \
 				--from='heads(ancestors({{.r}}) & tracked_remote_bookmarks())' \
 				--to={{.r}} \
 			&& jj git push --revisions={{.r}} \
@@ -111,18 +112,20 @@
 	retrunk = [
 		'rebase', '--source=roots(stale)', '--destination=og', '--skip-emptied']
 	sync = [
-		'util', 'exec', '--', 'sh', '-c', '''
+		'ash', '--quiet', '''
 			set -ex
 			jj bg git fetch --all-remotes
 			jj retrunk
-		''', '']
+		''']
 	unarchive = [
-		'util', 'exec', '--', 'sh', '-c', '''
+		'ash', '-r @ revision', ''' \
 			m=$(
-				jj bgc list \
-					--template='unarchived(description)' --revisions="$*") \
-			&& jj describe --message="$m" "$*"
-		''', '']
+				jj bg show \
+					--template='unarchived(description)' \
+					--no-patch \
+					{{.r}}) \
+			&& jj describe --message="$m" {{.r}}
+		''']
 	up = ['new']
 	ws = ['workspace']
 
