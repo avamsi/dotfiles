@@ -80,6 +80,7 @@
 [aliases]
 	ab = ['absorb']
 	am = ['squash']
+	ash = ['bg', 'util', 'exec', '--', 'ash']
 	bg = [
 		'--config=ui.log-word-wrap=false',
 		'--ignore-working-copy',
@@ -100,7 +101,7 @@
 		'diff', '--git']
 	hide = ['abandon', 'empty() & mutable()']
 	push = [
-		'util', 'exec', '--', 'ash', '-r @- revision', '--remote', ''' \
+		'ash', '-r @- revision', '--remote', ''' \
 			jj bookmark move \
 				--from='heads(ancestors({{.r}}) & tracked_remote_bookmarks())' \
 				--to={{.r}} \
