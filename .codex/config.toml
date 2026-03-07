@@ -1,6 +1,6 @@
 model = "gpt-5.4"
 model_reasoning_effort = "high"
-notify = ["say", "-v", "Bells", "Done!"]
+notify = ["sh", "-c", "say -v Bells Done!"]
 preferred_auth_method = "chatgpt"
 personality = "pragmatic"
 service_tier = "fast"
