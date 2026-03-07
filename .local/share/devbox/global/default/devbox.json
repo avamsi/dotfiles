@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.0/.schema/devbox.schema.json",
   "packages": [
     // keep-sorted start
     "antigen@latest",
@@ -9,15 +9,20 @@
     "delta@latest",
     "fzf@latest",
     "gh@latest",
+    "gmailctl@latest",
     "go@latest",
+    "htop@latest",
     "jujutsu@latest",
     "keep-sorted@latest",
     "micro@latest",
     "mosh@latest",
     "mutagen@latest",
     "pdftk@latest",
+    "shellcheck@latest",
+    "tmux@latest",
     "uv@latest",
     "viddy@latest",
+    "watchman@latest",
     "zsh-abbr@latest",
     "zsh@latest",
     // keep-sorted end
