@@ -20,6 +20,8 @@
     "mutagen@latest",
     "pdftk@latest",
     "shellcheck@latest",
+    "src-cli@latest",
+    "sshpass@latest",
     "tmux@latest",
     "uv@latest",
     "viddy@latest",
