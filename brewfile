@@ -1,6 +1,7 @@
 # keep-sorted start
 brew "antigen"
 brew "bat"
+brew "bun"
 # brew "clipper", restart_service: true
 brew "fzf"
 brew "gh"

@@ -4,6 +4,7 @@
     // keep-sorted start
     "antigen@latest",
     "bat@latest",
+    "bun@latest",
     "claude-code@latest",
     "codex@latest",
     "delta@latest",
