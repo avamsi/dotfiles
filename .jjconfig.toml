@@ -142,6 +142,16 @@
 	'working_copy description placeholder' = 'default'
 	working_copy.underline = true
 
+[fix.tools.ruff-check]
+	command = [
+		'uvx', 'ruff', 'check', '--fix', '--extend-select=I',
+			'--stdin-filename=$path', '-']
+	patterns = ['**/*.ipynb', '**/*.py']
+
+[fix.tools.ruff-format]
+	command = ['uvx', 'ruff', 'format', '--stdin-filename=$path', '-']
+	patterns = ['**/*.ipynb', '**/*.py']
+
 [fsmonitor]
 	backend = 'watchman'
 	watchman.register-snapshot-trigger = true
