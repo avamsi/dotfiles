@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+matches:
+  - trigger: "!w  "
+    replace: "where date_id = {{today}} "
+    vars:
+      - name: today
+        type: date
+        params:
+          format: "%Y%m%d"
+  - regex: "!go (?P<cols>.+)  "
+    replace: group by {{cols}} order by {{cols}}
