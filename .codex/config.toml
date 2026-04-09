@@ -3,7 +3,5 @@ model_reasoning_effort = "high"
 notify = ["sh", "-c", "say -v Bells Done!"]
 personality = "none"
 preferred_auth_method = "chatgpt"
+sandbox_mode = "workspace-write"
 service_tier = "fast"
-
-[features]
-unified_exec = true
