@@ -1,16 +1,25 @@
 {
   "alwaysThinkingEnabled": true,
   "extraKnownMarketplaces": {
+    "marimo-pair": {
+      "source": {
+        "source": "github",
+        "repo": "marimo-team/marimo-pair"
+      },
+      "autoUpdate": true
+    },
     "openai-codex": {
       "source": {
         "source": "github",
         "repo": "openai/codex-plugin-cc"
-      }
+      },
+      "autoUpdate": true
     }
   },
   "enabledPlugins": {
     "codex@openai-codex": true,
     "gopls-lsp@claude-plugins-official": true,
+    "marimo-pair@marimo-pair": true,
     "pyright-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true
   },
