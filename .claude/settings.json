@@ -54,11 +54,13 @@
       "WebSearch",
       "Write",
       "mcp__chrome-devtools"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true
   },
+  "skipAutoPermissionPrompt": true,
   "skipDangerousModePermissionPrompt": true
 }
