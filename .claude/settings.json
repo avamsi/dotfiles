@@ -23,6 +23,10 @@
     "pyright-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true
   },
+  "env": {
+    "CLAUDE_CODE_NO_FLICKER": 1,
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-7"
+  },
   "fastMode": true,
   "hooks": {
     "Notification": [
