@@ -38,6 +38,17 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "- Review $ARGUMENTS\n- Do not make changes; only instruct the main agent\n- Commit existing changes iff they are standalone and mergeable\n- Return {\"ok\": true} iff all user requests are addressed\n- Return {\"ok\": false, \"reason\": \"<missing requested work>\"} otherwise",
+            "timeout": 120
+          }
+        ]
+      }
     ]
   },
   "model": "opus[1m]",
