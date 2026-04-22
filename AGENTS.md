@@ -3,6 +3,8 @@
   - Show your work
 - Consider alternatives (and trade-offs)
 - Develop iteratively
+  - Establish feedback loops with tools
+  - Sandbox may impose additional constraints
 - Keep things simple
 - Prefer jj (over git)
   - Use `jj delta` over `jj diff`
