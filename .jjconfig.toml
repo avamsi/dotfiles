@@ -6,7 +6,7 @@
 	email = 'avamsi07@gmail.com'
 
 [revset-aliases]
-	archived = 'description("(jj archive)*")'
+	archived = 'mutable() & description("(jj archive)*")'
 	local = 'mutable() ~ archived'
 	og = 'trunk()'
 	interesting = 'og | ancestors(local | working_copies(), 2)'
@@ -99,6 +99,8 @@
 		'ash', '--quiet', '''
 			jj --color=always show --template=dashboard --no-patch
 			jj bgc log --revisions=interesting
+			printf '   \e[90m%s archived commits\e[0m\n' \
+				"$(jj bg log --revisions=archived --count)"
 		''']
 	delta = [
 		'''--config=ui.pager=[
