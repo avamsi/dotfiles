@@ -10,6 +10,7 @@
     "delta@latest",
     "fzf@latest",
     "gh@latest",
+    "git@latest",
     "gmailctl@latest",
     "go@latest",
     "htop@latest",
