@@ -1,6 +1,6 @@
 alias ...='cd ../..'
 alias ..='cd ..'
-alias claude='claude --allow-dangerously-skip-permissions --enable-auto-mode'
+alias claude='claude --allow-dangerously-skip-permissions'
 # https://github.com/wincent/clipper
 # alias clip='tee >(nc -N localhost 8377)'
 alias grep='grep --color'
