@@ -1,5 +1,6 @@
 {
   "alwaysThinkingEnabled": true,
+  "effortLevel": "xhigh",
   "extraKnownMarketplaces": {
     "marimo-pair": {
       "source": {
@@ -24,7 +25,8 @@
     "rust-analyzer-lsp@claude-plugins-official": true
   },
   "env": {
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-7"
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "42",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-8"
   },
   "fastMode": true,
   "hooks": {
