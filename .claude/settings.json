@@ -22,7 +22,8 @@
     "gopls-lsp@claude-plugins-official": true,
     "marimo-pair@marimo-pair": true,
     "pyright-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
   },
   "env": {
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "42",
@@ -65,6 +66,7 @@
       "Edit",
       "MultiEdit",
       "NotebookEdit",
+      "Skill",
       "WebFetch",
       "WebSearch",
       "Write",
