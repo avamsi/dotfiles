@@ -71,7 +71,10 @@
   "preferredNotifChannel": "terminal_bell",
   "sandbox": {
     "enabled": true,
-    "autoAllowBashIfSandboxed": true
+    "autoAllowBashIfSandboxed": true,
+    "network": {
+      "allowedDomains": ["github.com"]
+    }
   },
   "skipAutoPermissionPrompt": true,
   "skipDangerousModePermissionPrompt": true
