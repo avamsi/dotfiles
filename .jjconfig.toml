@@ -80,7 +80,6 @@
 [aliases]
 	ab = ['absorb']
 	am = ['squash']
-	ash = ['bg', 'util', 'exec', '--', 'ash']
 	bg = [
 		'--config=ui.log-word-wrap=false',
 		'--ignore-working-copy',
@@ -94,6 +93,7 @@
 					{{.r}}) \
 			&& jj describe --message="$m" {{.r}}
 		''']
+	ash = ['bg', 'util', 'exec', '--', 'ash']
 	bgc = ['bg', '--color=always']
 	dash = [
 		'ash', '--quiet', '''
@@ -111,13 +111,13 @@
 	sync = [
 		'ash', '--quiet', '''
 			set -ex
-			jj bg git fetch --all-remotes
+			jj git fetch --all-remotes
 			jj retrunk
 		''']
 	push = [
 		'ash', '--quiet', '-r @- revision', '--remote', '''
 			set -ex
-			jj bg bookmark move \
+			jj bookmark move \
 				--from='heads(ancestors({{.r}}) & tracked_remote_bookmarks())' \
 				--to={{.r}}
 			jj git push --revisions={{.r}} \
