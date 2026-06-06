@@ -52,6 +52,7 @@
       }
     ]
   },
+  "includeGitInstructions": false,
   "model": "opus[1m]",
   "permissions": {
     "allow": [
