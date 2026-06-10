@@ -5,6 +5,7 @@
 - Develop iteratively
   - Establish feedback loops with tools
   - Sandbox may impose additional constraints
+- Escalate anything unexpected
 - Keep things simple
 - Prefer jj (over git)
   - Use `jj delta` over `jj diff`
