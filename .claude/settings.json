@@ -26,7 +26,7 @@
   },
   "env": {
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "42",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-8"
+    "CLAUDE_CODE_SUBAGENT_MODEL": "opus[1m]"
   },
   "fastMode": true,
   "hooks": {
