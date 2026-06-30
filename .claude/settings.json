@@ -45,8 +45,10 @@
         "hooks": [
           {
             "type": "agent",
-            "prompt": "- Review $ARGUMENTS\n- Do not make changes; only instruct the primary agent\n- Commit existing changes iff they are standalone and mergeable\n- Return {\"ok\": true} iff all user requests are addressed\n- Return {\"ok\": false, \"reason\": \"<missing requested work>\"} otherwise",
-            "timeout": 120
+            "prompt": "- Review $ARGUMENTS\n- Commit existing changes iff they are standalone and mergeable\n- Do not make changes; only instruct the primary agent\n- Return {\"ok\": true} iff all user requests are addressed\n- Return {\"ok\": false, \"reason\": \"<missing requested work>\"} otherwise",
+            "model": "sonnet",
+            "statusMessage": "Nikeing..",
+            "timeout": 300
           }
         ]
       }
