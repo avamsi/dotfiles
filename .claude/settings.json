@@ -46,7 +46,7 @@
           {
             "type": "agent",
             "prompt": "- Review $ARGUMENTS\n- Commit existing changes iff they are standalone and mergeable\n- Do not make changes; only instruct the primary agent\n- Return {\"ok\": true} iff all user requests are addressed\n- Return {\"ok\": false, \"reason\": \"<missing requested work>\"} otherwise",
-            "model": "sonnet",
+            "model": "sonnet[1m]",
             "statusMessage": "Nikeing..",
             "timeout": 300
           }
@@ -55,7 +55,7 @@
     ]
   },
   "includeGitInstructions": false,
-  "model": "opus[1m]",
+  "model": "fable[1m]",
   "permissions": {
     "allow": [
       "Bash(cargo test *)",
