@@ -1,7 +1,10 @@
 model = "gpt-5.5"
 model_reasoning_effort = "xhigh"
-notify = ["sh", "-c", "say -v Bells Done!"]
 personality = "none"
 preferred_auth_method = "chatgpt"
 sandbox_mode = "workspace-write"
 service_tier = "fast"
+
+[desktop]
+followUpQueueMode = "steer"
+mac-menu-bar-enabled = false
