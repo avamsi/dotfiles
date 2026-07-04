@@ -47,7 +47,7 @@
           {
             "type": "agent",
             "prompt": "- Review $ARGUMENTS\n- Commit existing changes iff they are standalone and mergeable\n- Do not make changes; only instruct the primary agent\n- Return {\"ok\": true} iff all user requests are addressed\n- Return {\"ok\": false, \"reason\": \"<missing requested work>\"} otherwise",
-            "model": "sonnet[1m]",
+            "model": "claude-sonnet-5[1m]",
             "statusMessage": "Nikeing..",
             "timeout": 300
           }
