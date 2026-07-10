@@ -8,3 +8,6 @@ service_tier = "fast"
 [desktop]
 followUpQueueMode = "steer"
 mac-menu-bar-enabled = false
+
+[desktop.open-in-target-preferences]
+global = "zed"

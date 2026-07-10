@@ -5,12 +5,20 @@
       "model": "gemini-3.1-pro-preview",
       "provider": "copilot_chat",
     },
+    "dock": "right",
+    "sidebar_side": "right",
   },
   "agent_servers": {
     "claude-acp": { "type": "registry" },
     "codex-acp": { "type": "registry" },
   },
   "buffer_font_size": 14,
+  "cli_default_open_behavior": "new_window",
+  "edit_predictions": {
+    "open_ai_compatible_api": {
+    },
+    "provider": "open_ai_compatible_api",
+  },
   "languages": {
     "JSON": { "format_on_save": "off" },
     "Python": {
@@ -18,6 +26,9 @@
       "language_servers": ["pyright", "ruff"],
     },
     "TOML": { "format_on_save": "off" },
+  },
+  "project_panel": {
+    "dock": "left",
   },
   "telemetry": { "diagnostics": false, "metrics": false },
   "terminal": { "font_family": "MesloLGS NF" },
