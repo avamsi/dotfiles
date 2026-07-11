@@ -1,0 +1,266 @@
+[
+  {
+    "command": "approval.approve",
+    "key": null
+  },
+  {
+    "command": "approval.decline",
+    "key": null
+  },
+  {
+    "command": "archiveThread",
+    "key": "Command+Shift+E"
+  },
+  {
+    "command": "clearAllUnreads",
+    "key": null
+  },
+  {
+    "command": "composer.openModelPicker",
+    "key": null
+  },
+  {
+    "command": "composer.openProjectPicker",
+    "key": null
+  },
+  {
+    "command": "composer.startDictation",
+    "key": null
+  },
+  {
+    "command": "composer.startVoiceMode",
+    "key": null
+  },
+  {
+    "command": "copyConversationPath",
+    "key": null
+  },
+  {
+    "command": "copyDeeplink",
+    "key": null
+  },
+  {
+    "command": "copySessionId",
+    "key": null
+  },
+  {
+    "command": "copyWorkingDirectory",
+    "key": null
+  },
+  {
+    "command": "environmentAction1",
+    "key": null
+  },
+  {
+    "command": "focusBrowserAddressBar",
+    "key": null
+  },
+  {
+    "command": "hardReloadBrowserPage",
+    "key": null
+  },
+  {
+    "command": "markThreadUnread",
+    "key": null
+  },
+  {
+    "command": "navigateBack",
+    "key": null
+  },
+  {
+    "command": "navigateBrowserBack",
+    "key": null
+  },
+  {
+    "command": "navigateBrowserForward",
+    "key": null
+  },
+  {
+    "command": "navigateForward",
+    "key": null
+  },
+  {
+    "command": "newProjectlessTask",
+    "key": "Command+Shift+N"
+  },
+  {
+    "command": "newTask",
+    "key": "CmdOrCtrl+N"
+  },
+  {
+    "command": "newWindow",
+    "key": null
+  },
+  {
+    "command": "nextTab",
+    "key": "Ctrl+Tab"
+  },
+  {
+    "command": "nextThread",
+    "key": null
+  },
+  {
+    "command": "nextThreadNeedingAttention",
+    "key": null
+  },
+  {
+    "command": "openBrowserTab",
+    "key": null
+  },
+  {
+    "command": "openFolder",
+    "key": null
+  },
+  {
+    "command": "openReviewTab",
+    "key": null
+  },
+  {
+    "command": "openSideChat",
+    "key": null
+  },
+  {
+    "command": "previousTab",
+    "key": "Ctrl+Shift+Tab"
+  },
+  {
+    "command": "previousThread",
+    "key": null
+  },
+  {
+    "command": "quickChat",
+    "key": null
+  },
+  {
+    "command": "recentThread1",
+    "key": null
+  },
+  {
+    "command": "recentThread2",
+    "key": null
+  },
+  {
+    "command": "recentThread3",
+    "key": null
+  },
+  {
+    "command": "recentThread4",
+    "key": null
+  },
+  {
+    "command": "recentThread5",
+    "key": null
+  },
+  {
+    "command": "recentThread6",
+    "key": null
+  },
+  {
+    "command": "reloadBrowserPage",
+    "key": null
+  },
+  {
+    "command": "renameThread",
+    "key": null
+  },
+  {
+    "command": "searchChats",
+    "key": "Command+Shift+F"
+  },
+  {
+    "command": "searchFiles",
+    "key": null
+  },
+  {
+    "command": "showKeyboardShortcuts",
+    "key": null
+  },
+  {
+    "command": "switchToMode1",
+    "key": null
+  },
+  {
+    "command": "switchToMode2",
+    "key": null
+  },
+  {
+    "command": "switchToMode3",
+    "key": null
+  },
+  {
+    "command": "thread1",
+    "key": null
+  },
+  {
+    "command": "thread2",
+    "key": null
+  },
+  {
+    "command": "thread3",
+    "key": null
+  },
+  {
+    "command": "thread4",
+    "key": null
+  },
+  {
+    "command": "thread5",
+    "key": null
+  },
+  {
+    "command": "thread6",
+    "key": null
+  },
+  {
+    "command": "thread7",
+    "key": null
+  },
+  {
+    "command": "thread8",
+    "key": null
+  },
+  {
+    "command": "thread9",
+    "key": null
+  },
+  {
+    "command": "toggleBottomPanel",
+    "key": null
+  },
+  {
+    "command": "toggleBrowserPanel",
+    "key": null
+  },
+  {
+    "command": "toggleFileTreePanel",
+    "key": null
+  },
+  {
+    "command": "togglePinnedSummary",
+    "key": "Command+Shift+S"
+  },
+  {
+    "command": "togglePriorityFilter",
+    "key": "Command+Shift+A"
+  },
+  {
+    "command": "toggleSidebar",
+    "key": null
+  },
+  {
+    "command": "toggleSidePanel",
+    "key": "Command+Shift+D"
+  },
+  {
+    "command": "toggleTerminal",
+    "key": null
+  },
+  {
+    "command": "toggleThreadPin",
+    "key": null
+  },
+  {
+    "command": "toggleTraceRecording",
+    "key": null
+  }
+]
