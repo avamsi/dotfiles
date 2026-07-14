@@ -20,3 +20,9 @@ memories = true
 [memories]
 generate_memories = true
 use_memories = true
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
