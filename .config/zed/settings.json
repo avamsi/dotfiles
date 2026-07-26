@@ -14,6 +14,7 @@
   },
   "buffer_font_size": 14,
   "cli_default_open_behavior": "new_window",
+  "collaboration_panel": { "button": false },
   "edit_predictions": {
     "open_ai_compatible_api": {
     },
@@ -27,11 +28,9 @@
     },
     "TOML": { "format_on_save": "off" },
   },
-  "project_panel": {
-    "dock": "left",
-  },
+  "project_panel": { "dock": "left" },
   "telemetry": { "diagnostics": false, "metrics": false },
-  "terminal": { "font_family": "MesloLGS NF" },
+  "terminal": { "button": false, "font_family": "MesloLGS NF" },
   "theme": { "dark": "Ayu Mirage", "light": "Ayu Mirage" },
   "wrap_guides": [80],
 }
