@@ -13,3 +13,10 @@ mac-menu-bar-enabled = false
 
 [desktop.open-in-target-preferences]
 global = "zed"
+
+[features]
+memories = true
+
+[memories]
+generate_memories = true
+use_memories = true
