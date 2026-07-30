@@ -15,6 +15,7 @@ mac-menu-bar-enabled = false
 global = "zed"
 
 [features]
+default_mode_request_user_input = true
 memories = true
 
 [memories]
