@@ -32,15 +32,15 @@
     "key": null
   },
   {
+    "command": "composer.submitInBackground",
+    "key": null
+  },
+  {
     "command": "copyConversationPath",
     "key": null
   },
   {
     "command": "copyDeeplink",
-    "key": null
-  },
-  {
-    "command": "copySessionId",
     "key": null
   },
   {
@@ -161,6 +161,10 @@
   },
   {
     "command": "renameThread",
+    "key": null
+  },
+  {
+    "command": "reopenClosedTab",
     "key": null
   },
   {
