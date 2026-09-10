@@ -1,7 +1,7 @@
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
 model = "gpt-6-astra"
-model_reasoning_effort = "medium"
+model_reasoning_effort = "high"
 personality = "none"
 preferred_auth_method = "chatgpt"
 sandbox_mode = "workspace-write"
