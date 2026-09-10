@@ -21,7 +21,6 @@ SAVEHIST=$HISTSIZE
 export COLORTERM='truecolor'
 export DISPLAY=':0'
 export EDITOR='tmicro'
-export TERM='xterm-256color'
 
 export PATH="${CARGO_HOME:-$HOME/.cargo}/bin:$PATH"
 export PATH="${GOPATH:-$HOME/go}/bin:$PATH"
