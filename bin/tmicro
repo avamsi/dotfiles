@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-#
-# Usage: tmicro [file]
-
-[[ -v TMUX ]] && tmux source ~/dotfiles/tmux/reset_keys.conf
-command micro $@
-local r=$?
-[[ -v TMUX ]] && tmux source ~/dotfiles/tmux/keys.conf
-exit $r
