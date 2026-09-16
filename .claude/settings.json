@@ -1,6 +1,6 @@
 {
   "alwaysThinkingEnabled": true,
-  "autoCompactWindow": 400000,
+  "autoCompactWindow": 500000,
   "effortLevel": "medium",
   "extraKnownMarketplaces": {
     "marimo-pair": {
