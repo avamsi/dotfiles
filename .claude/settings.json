@@ -10,6 +10,13 @@
       },
       "autoUpdate": true
     },
+    "knowledge-work-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/knowledge-work-plugins"
+      },
+      "autoUpdate": true
+    },
     "openai-codex": {
       "source": {
         "source": "github",
@@ -20,6 +27,7 @@
   },
   "enabledPlugins": {
     "codex@openai-codex": true,
+    "data@knowledge-work-plugins": true,
     "gopls-lsp@claude-plugins-official": true,
     "marimo-pair@marimo-pair": true,
     "pyright-lsp@claude-plugins-official": true,
