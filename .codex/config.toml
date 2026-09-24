@@ -17,11 +17,6 @@ global = "zed"
 [features]
 default_mode_request_user_input = true
 memories = true
-multi_agent = true
-
-[memories]
-generate_memories = true
-use_memories = true
 
 [plugins."visualize@openai-bundled"]
 enabled = true
