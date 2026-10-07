@@ -3,17 +3,17 @@
   "autoCompactWindow": 500000,
   "effortLevel": "medium",
   "extraKnownMarketplaces": {
-    "marimo-pair": {
-      "source": {
-        "source": "github",
-        "repo": "marimo-team/marimo-pair"
-      },
-      "autoUpdate": true
-    },
     "knowledge-work-plugins": {
       "source": {
         "source": "github",
         "repo": "anthropics/knowledge-work-plugins"
+      },
+      "autoUpdate": true
+    },
+    "marimo-pair": {
+      "source": {
+        "source": "github",
+        "repo": "marimo-team/marimo-pair"
       },
       "autoUpdate": true
     },
@@ -57,7 +57,9 @@
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
     "network": {
-      "allowedDomains": ["github.com"]
+      "allowedDomains": [
+        "github.com"
+      ]
     }
   },
   "skipAutoPermissionPrompt": true,
